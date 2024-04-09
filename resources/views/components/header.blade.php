@@ -24,6 +24,9 @@
                                             <li>
                                                 <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
                                             </li>
+                                            <li>
+                                                <a href="{{ route('main') }}" class="link header_link">Мои рецепты</a>
+                                            </li>
                                         @else
                                             <li class="burger_reg-auth">
                                                 <a href="{{ route('login') }}" class="link header_link">Войти |</a>
@@ -38,37 +41,33 @@
                                         <a href="{{ route('main') }}" class="link header_link">Главная</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                                        <a href="{{ route('main') }}" class="link header_link">Рецепты</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Главная</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                                        <a href="{{ route('main') }}" class="link header_link">Статьи</a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
                         <a href="{{ route('main') }}">
                             <img src="/assets/image/main/logo.svg" alt="Logo" title="Logo" class="header_logo">
+                            <img src="/assets/image/main/logo-small.svg" alt="Logo" title="Logo" class="header_logo-small">
                         </a>
                     </div> 
                     <div class="header_column-2">
-                        <div class="header_reg-auth__wrapper">
-                            <a href="{{ route('main') }}" class="link header_link">Главная</a>
-                            <a href="{{ route('main') }}" class="link header_link">Рецепты</a>
-                            <a href="{{ route('main') }}" class="link header_link">Статьи</a>
-                            @if (Route::has('login'))
-                                @auth
-                                    <a href="{{ route('main') }}" class="link header_link">Мои рецепты</a>
-                                    <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
-                                @else
-                                    <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
-                                @endauth
+                        <form action="" class="header_seacrh__wrapper">
+                            <input type="text" placeholder="Поиск рецептов" class="header_seacrh__input" name='search' id="search">
+                            <button type="submit" class="header_seacrh__button" name='submit' id="submit"><img src="/assets/image/icon/search.svg" alt=""></button>
+                        </form>
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
                             @else
                                 <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
-                            @endif
-                        </div>
+                            @endauth
+                        @else
+                            <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                        @endif
                     </div> 
                     <div class="header_column-3">
                         @if (Route::has('login'))

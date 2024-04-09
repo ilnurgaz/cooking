@@ -101,10 +101,16 @@ header {
     justify-content: space-between;
     padding-top: 10px;
     padding-bottom: 10px;
+    gap: 20px;
 }
 
 .header_logo {
     width: 150px;
+}
+
+.header_logo-small {
+    display: none;
+    width: 30px;
 }
 
 .header_column-1,
@@ -113,6 +119,20 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.header_column-1 {
+    flex: 1;
+}
+
+.header_column-2 {
+    flex: 2;
+    justify-content: center;
+}
+
+.header_column-3 {
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .header_reg-auth__wrapper {
@@ -126,6 +146,7 @@ header {
     border-radius: 5px;
     padding: 7px;
     color: white;
+    white-space: nowrap;
 }
 
 .navbar {
@@ -134,21 +155,26 @@ header {
     background-color: white;
     padding: 20px;
     top: 50px;
-    left: 0;
     overflow: hidden;
+}
+
+@media (max-width: 1400px) {
+    .navbar {
+        left: 0;
+    }
 }
 
 .navbar.active {
     display: block;
-    animation: slideDown 0.3s ease-in-out;
+    animation: slideDown 0.1s ease-in-out;
 }
 
 @keyframes slideDown {
     from {
-        max-height: 0; /* Начальное значение для анимации */
+        max-height: 0;
     }
     to {
-        max-height: 200px; /* Максимальная высота меню */
+        max-height: 200px; 
     }
 }
 
@@ -164,11 +190,11 @@ header {
     color: #333;
     font-size: 24px;
     cursor: pointer;
-    display: none;
 }
 
 .burger_reg-auth {
     margin-bottom: 10px;
+    display: none;
 }
 
 .burger_wrapper .button-target {
@@ -177,19 +203,69 @@ header {
     justify-content: center;
 }
 
-@media (max-width: 1000px) {
-    .header_column-2 {
+@media (max-width: 900px) {
+    .header_column-3 {
         display: none;
     }
 
-    .burger-btn {
+    .burger_reg-auth {
         display: block;
     }
 }
 
-@media (max-width: 500px) {
-    
+.header_seacrh__wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 300px;
 }
+
+.header_seacrh__input {
+    outline: none;
+    border: var(--main-color) solid 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0 10px;
+    height: 28px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 14px;
+    font-family: 'MontserratR';
+}
+
+.header_seacrh__button {
+    outline: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--main-color);
+    height: 30px;
+    border: none;
+}
+
+.header_seacrh__button img {
+    width: 20px;
+}
+
+@media (max-width: 700px) {
+    .header_column-2 .button-target {
+        display: none;
+    }
+
+    .header_column-2 {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 500px) {
+    .header_logo {
+        display: none;
+    }
+
+    .header_logo-small {
+        display: block;
+    }
+}
+
+
 
 
 
