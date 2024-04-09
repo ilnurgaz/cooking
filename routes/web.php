@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +19,7 @@ use Spatie\Permission\Contracts\Role;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
 
 Route::get('/dashboard', function () {
@@ -34,6 +37,11 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin', function () {
         return view('main');
     });
+});
+
+Route::get('/css/{file}', function ($file) {
+    $css = File::get(resource_path("css/{$file}"));
+    return response($css)->header('Content-Type', 'text/css');
 });
 
 require __DIR__.'/auth.php';
