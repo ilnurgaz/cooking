@@ -135,10 +135,21 @@ header {
     padding: 20px;
     top: 50px;
     left: 0;
+    overflow: hidden;
 }
 
 .navbar.active {
     display: block;
+    animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0; /* Начальное значение для анимации */
+    }
+    to {
+        max-height: 200px; /* Максимальная высота меню */
+    }
 }
 
 .navbar ul {
@@ -148,7 +159,6 @@ header {
 }
 
 .burger-btn {
-    display: block;
     background-color: transparent;
     border: none;
     color: #333;
@@ -163,6 +173,8 @@ header {
 
 .burger_wrapper .button-target {
     padding: 10px 20px !important;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 1000px) {

@@ -21,19 +21,31 @@
                                             <li class="burger_reg-auth">
                                                 <a href="{{ url('/dashboard') }}" class="link header_link">Профиль</a>
                                             </li>
-                                            <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                                            <li>
+                                                <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                                            </li>
                                         @else
                                             <li class="burger_reg-auth">
                                                 <a href="{{ route('login') }}" class="link header_link">Войти |</a>
                                                 <a href="{{ route('register') }}" class="link header_link">Зарегистрироваться</a>
                                             </li>
-                                            <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                                            <li>
+                                                <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                                            </li>
                                         @endauth
                                     @endif
-                                    <a href="{{ route('main') }}" class="link header_link">Главная</a>
-                                    <a href="{{ route('main') }}" class="link header_link">Главная</a>
-                                    <a href="{{ route('main') }}" class="link header_link">Главная</a>
-                                    <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                                    <li>
+                                        <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
