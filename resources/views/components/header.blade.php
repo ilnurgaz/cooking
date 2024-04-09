@@ -7,18 +7,34 @@
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body class="antialiased">
-        <div class="wrapper container">
-            <header class="container">
-                <div class="header_wrapper">
+        <div class="wrapper">
+            <header>
+                <div class="header_wrapper container">
                     <div class="header_column-1">
-
+                        <a href="{{ route('main') }}">
+                            <img src="/image/main/logo.svg" alt="Logo" title="Logo" class="header_logo">
+                        </a>
                     </div> 
                     <div class="header_column-2">
-
+                        <div class="header_reg-auth__wrapper">
+                            <a href="{{ route('main') }}" class="link header_link">Главная</a>
+                            <a href="{{ route('main') }}" class="link header_link">Рецепты</a>
+                            <a href="{{ route('main') }}" class="link header_link">Статьи</a>
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ route('main') }}" class="link header_link">Мои рецепты</a>
+                                    <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                                @else
+                                    <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                                @endauth
+                            @else
+                                <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                            @endif
+                        </div>
                     </div> 
                     <div class="header_column-3">
                         @if (Route::has('login'))
-                            <div class="">
+                            <div class="header_reg-auth__wrapper">
                                 @auth
                                     <a href="{{ url('/dashboard') }}" class="link header_link">Профиль</a>
                                 @else
