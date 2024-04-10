@@ -21,7 +21,7 @@
                                             <li class="burger_reg-auth">
                                                 <a href="{{ url('/dashboard') }}" class="link header_link">Профиль</a>
                                             </li>
-                                            <li>
+                                            <li class="button-target_wrapper">
                                                 <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
                                             </li>
                                             <li>
@@ -32,7 +32,7 @@
                                                 <a href="{{ route('login') }}" class="link header_link">Войти |</a>
                                                 <a href="{{ route('register') }}" class="link header_link">Зарегистрироваться</a>
                                             </li>
-                                            <li>
+                                            <li  class="button-target_wrapper">
                                                 <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
                                             </li>
                                         @endauth
@@ -45,6 +45,9 @@
                                     </li>
                                     <li>
                                         <a href="{{ route('main') }}" class="link header_link">Статьи</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('main') }}" class="link header_link">Контакты</a>
                                     </li>
                                 </ul>
                             </nav>
