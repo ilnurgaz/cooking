@@ -90,3 +90,4 @@
                 </div>
             </header>
             <main>
+                <div class="main_content container">

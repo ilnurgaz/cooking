@@ -1,3 +1,4 @@
+                </div>
             </main>
             <footer>
                 <div class="footer_wrapper container">
@@ -48,7 +49,7 @@
                         </div>
                     </div>
                     <div class="copyrights_wrapper">
-                        <p class="copyrights">© 2023 LoremIpsum.ru</p>
+                        <p class="copyrights">© 2024 Culinary.ru</p>
                     </div>
                 </div>
             </footer>
