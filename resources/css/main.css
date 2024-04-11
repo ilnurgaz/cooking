@@ -433,7 +433,7 @@ footer {
     font-family: 'Roboto';
 }
 
-.form_link {
+.form_r_a .form_link {
     font-size: 14px;
     font-family: 'MontserratR';
     transition: 0.3s;
@@ -451,9 +451,9 @@ footer {
     color: red;
 }
 
-input[type=email],
-input[type=password],
-input[type=text] {
+.form_r_a input[type=email],
+.form_r_a input[type=password],
+.form_r_a input[type=text] {
     max-width: 100%;
     min-width: 400px;
     height: 40px;
@@ -466,12 +466,12 @@ input[type=text] {
     font-family: 'MontserratR';
 }
 
-input[type=email]:hover,
-input[type=password]:hover,
-input[type=text]:hover,
-input[type=email]:focus,
-input[type=password]:focus,
-input[type=text]:focus {
+.form_r_a input[type=email]:hover,
+.form_r_a input[type=password]:hover,
+.form_r_a input[type=text]:hover,
+.form_r_a input[type=email]:focus,
+.form_r_a input[type=password]:focus,
+.form_r_a input[type=text]:focus {
     border-color: var(--main-color);
 }
 
@@ -480,7 +480,7 @@ input[type=text]:focus {
     height: 20px;
 }
 
-.form_label__checkbox {
+.form_r_a .form_label__checkbox {
     display: flex;
     align-items: center;
     gap: 10px;
