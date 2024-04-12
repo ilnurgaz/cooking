@@ -1,18 +1,22 @@
 <x-header/>
     <div class="bloks_wrapper">
         @if(Session::has('success'))
-            <div class="">
+            <div class="message-success">
                 {{ Session::get('success') }}
             </div>
         @endif
         @if(Session::has('error'))
-            <div class="">
+            <div class="message-error">
                 {{ Session::get('error') }}
             </div>
         @endif
-        @if ($errors->has('error'))
-            <div class="alert alert-danger">
-                {{ $errors->first('error') }}
+        @if($errors->any())
+            <div class="message-error">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
         <div class="block_container">
@@ -61,7 +65,7 @@
                             <td><img src="./assets/image/categorises/{{$image}}" alt="" class="table_categorie__image"></td>
                             <td>{{$el->name}}</td>
                             <td>{{$el->slug}}</td>
-                            <td><a href="" class="table_link link_update">Изменить</a></td>
+                            <td><a href="{{route('cat-update',$el->id)}}" class="table_link link_update">Изменить</a></td>
                             <td><a href="{{route('cat-delete',$el->id)}}" class="table_link link_delete">Удалить</a></td>
                         </tr>
                     @endforeach

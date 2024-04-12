@@ -52,6 +52,11 @@ Route::group(['middleware' => ['role:admin']], function () {
         '/admin-cat//{id}/delete',
         'App\Http\Controllers\AdminController@deleteCategory'
     )->name('cat-delete');
+
+    Route::get(
+        '/admin/{id}/cat-update',
+        'App\Http\Controllers\AdminController@updateCategory'
+    )->name('cat-update');
 });
 
 Route::get('/css/{file}', function ($file) {

@@ -6,30 +6,37 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\categoryRequest;
 
 class AdminController extends Controller
 {
 
-    public function addCateory(AdminRequest $req) {
+    public function addCateory(categoryRequest $req) {
 
         $category = new categories();
         $category->name = $req->input('name');
         $category->description = $req->input('description');
         $category->slug = $req->input('slug');
+        
         $image = $req->file('image');
-        $imageName = $image->getClientOriginalName(); 
-        $category->image = $imageName; 
-        $tmpPath = $image->getPathname();
-        $path = public_path('./assets/image/categorises');
+        if($image) {
+            $imageName = $image->getClientOriginalName(); 
+            $category->image = $imageName; 
+            $tmpPath = $image->getPathname();
+            $path = public_path('./assets/image/categorises');
+        }
+        
 
         try {
+            if($image) {
             move_uploaded_file($tmpPath, $path . '/' . $imageName);
+            }
 
             $category->save();
             
             Session::flash('success', 'Категория успешно создана.');
 
-            return redirect()->route('admin-categories')->withErrors(['error' => 'К сожалению, произошла ошибка.']);
+            return redirect()->route('admin-categories');
         } catch (\Exception $e) {
             if ($category->exists) {
                 $category->delete();
@@ -49,6 +56,11 @@ class AdminController extends Controller
     public function deleteCategory($id) {
         categories::find($id)->delete();
         return redirect()->route('admin-categories')->with('success', 'Категория была удалена.');
+    }
+
+    public function updateCategory($id) {
+        $category = new categories();
+        return view('admin-cat-update', ['data' => $category->find($id)]);
     }
     
 }

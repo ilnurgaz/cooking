@@ -259,7 +259,7 @@ header {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding: 0 10px;
-    height: 28px;
+    height: 30px;
     width: 100%;
     max-width: 300px;
     font-size: 14px;
@@ -277,6 +277,10 @@ header {
 
 .header_seacrh__button img {
     width: 20px;
+}
+
+.admin_cat__image {
+    max-width: 150px;
 }
 
 @media (max-width: 500px) {
@@ -693,6 +697,30 @@ footer {
     border-color: var(--main-color);
 }
 
+.message-success {
+    width: 100%;
+    padding: 20px;
+    background-color: #27ff00d6;
+    font-size: 16px;
+    font-family: 'Roboto';
+    border-radius: 15px;
+}
+
+.message-error {
+    width: 100%;
+    padding: 20px;
+    background-color: #ff0000cf;
+    font-size: 16px;
+    font-family: 'Roboto';
+    border-radius: 15px;
+}
+
+.message-error ul,
+.message-success ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 @font-face {
     font-family: MontserratB; 
