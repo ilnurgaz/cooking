@@ -35,8 +35,23 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['middleware' => ['role:admin']], function () { 
     Route::get('/admin', function () {
-        return view('main');
+        return view('admin');
     });
+
+    Route::get(
+        '/admin-cat',
+        'App\Http\Controllers\AdminController@allCategories'
+    )->name('admin-categories');
+    
+    Route::post(
+        '/admin/add-cat',
+        'App\Http\Controllers\AdminController@addCateory'
+    )->name('add-category');
+
+    Route::get(
+        '/admin-cat//{id}/delete',
+        'App\Http\Controllers\AdminController@deleteCategory'
+    )->name('cat-delete');
 });
 
 Route::get('/css/{file}', function ($file) {
