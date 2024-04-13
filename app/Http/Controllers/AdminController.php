@@ -62,5 +62,31 @@ class AdminController extends Controller
         $category = new categories();
         return view('admin-cat-update', ['data' => $category->find($id)]);
     }
+
+    public function updateCategoryController(categoryRequest $req, $id) {
+        $category = categories::find($id);
+        $category->name = $req->input('name');
+        $category->description = $req->input('description');
+        $category->slug = $req->input('slug');
+        $image = $req->file('image');
+        if($image) {
+            $imageName = $image->getClientOriginalName(); 
+            $category->image = $imageName; 
+            $tmpPath = $image->getPathname();
+            $path = public_path('./assets/image/categorises');
+        }
+        try {
+            if($image) {
+                move_uploaded_file($tmpPath, $path . '/' . $imageName);
+                }
+                $category->save();
+                Session::flash('success', 'Категория успешно обновлена.');
+                return redirect()->route('cat-update', $id);
+        }
+        catch(\Exception $e) {
+            Session::flash('error', 'Ошибка обновления.');
+            return redirect()->route('cat-update', $id);
+        }
+    }
     
 }

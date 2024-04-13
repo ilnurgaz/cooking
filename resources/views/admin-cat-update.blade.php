@@ -21,7 +21,7 @@
         @endif
         <div class="block_container">
             <h2 class="admin_title">Изменить категорию</h2>
-            <form action="{{ route('add-category') }}" class="admin_form" method='POST' enctype='multipart/form-data'>
+            <form action="{{ route('cat-update-controller', $data->id) }}" class="admin_form" method='POST' enctype='multipart/form-data'>
                 @csrf
                 <div>
                     <label for="name">Название</label>

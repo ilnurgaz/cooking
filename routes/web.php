@@ -57,6 +57,11 @@ Route::group(['middleware' => ['role:admin']], function () {
         '/admin/{id}/cat-update',
         'App\Http\Controllers\AdminController@updateCategory'
     )->name('cat-update');
+
+    Route::post(
+        '/admin/{id}/cat-update-controller',
+        'App\Http\Controllers\AdminController@updateCategoryController'
+    )->name('cat-update-controller');
 });
 
 Route::get('/css/{file}', function ($file) {
