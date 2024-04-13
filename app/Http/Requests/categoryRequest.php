@@ -26,7 +26,7 @@ class categoryRequest extends FormRequest
             'name' => 'required',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'slug' => 'required|min:5|max:50'
+            'slug' => 'required'
         ];
     }
 

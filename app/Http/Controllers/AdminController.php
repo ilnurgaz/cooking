@@ -25,6 +25,9 @@ class AdminController extends Controller
             $tmpPath = $image->getPathname();
             $path = public_path('./assets/image/categorises');
         }
+        else {
+            $category->image = 'image-placeholder.png'; 
+        }
         
 
         try {
@@ -49,8 +52,16 @@ class AdminController extends Controller
     }
 
     public function allCategories() {
-        $category = new categories();
-        return view('admin-cat', ['data' => $category->orderBy('created_at', 'desc')->take(5)->get()]);
+        $categories = categories::orderBy('created_at', 'desc')->take(10)->get();
+        $count = categories::count();
+        return view('admin-cat', ['data' => $categories, 'count' => $count, 'page' => 0]);
+    }
+
+    public function allCategoriesPagination($page) {
+        $offset = $page * 10;
+        $count = categories::count();
+        $categories = categories::orderBy('created_at', 'desc')->skip($offset)->take(10)->get();
+        return view('admin-cat', ['data' => $categories, 'count' => $count, 'page' => $page]);
     }
 
     public function deleteCategory($id) {

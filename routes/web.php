@@ -42,6 +42,11 @@ Route::group(['middleware' => ['role:admin']], function () {
         '/admin-cat',
         'App\Http\Controllers\AdminController@allCategories'
     )->name('admin-categories');
+
+    Route::get(
+        '/admin-cat/{page}',
+        'App\Http\Controllers\AdminController@allCategoriesPagination'
+    )->name('admin-categories-pagination');
     
     Route::post(
         '/admin/add-cat',
