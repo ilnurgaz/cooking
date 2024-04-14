@@ -18,8 +18,13 @@
                                 <ul>
                                     @if (Route::has('login'))
                                         @auth
+                                            @if(Auth::user()->hasRole('admin'))
+                                                <li>
+                                                    <a href="{{ route('admin') }}" class="link header_link">Панель администратора</a>
+                                                </li>
+                                            @endif
                                             <li class="burger_reg-auth">
-                                                <a href="{{ url('/dashboard') }}" class="link header_link">Профиль</a>
+                                                <a href="{{ url('/prifile') }}" class="link header_link">Профиль</a>
                                             </li>
                                             <li class="button-target_wrapper">
                                                 <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
@@ -76,7 +81,7 @@
                         @if (Route::has('login'))
                             <div class="header_reg-auth__wrapper">
                                 @auth
-                                    <a href="{{ url('/dashboard') }}" class="link header_link">Профиль</a>
+                                    <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>
                                 @else
                                     <a href="{{ route('login') }}" class="link header_link">Войти</a>
 

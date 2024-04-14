@@ -1,4 +1,4 @@
-<x-header/>
+<x-header-admin/>
     <div class="bloks_wrapper">
         @if(Session::has('success'))
             <div class="message-success">
@@ -59,13 +59,20 @@
                                 <?php
                                     if($el->image) {
                                         $image = $el->image;
+                                        $path = "./assets/image/categorises/$image";
+                                        if (file_exists($path)) {
+                                            $image = "/assets/image/categorises/$image";
+                                        }
+                                        else {
+                                            $image = "/assets/image/categorises/image-placeholder.png";
+                                        }
                                     }
                                     else {
-                                        $image = "image-placeholder.png";
+                                        $image = "/assets/image/categorises/image-placeholder.png";
                                     }
                                 ?>
                                 <tr>
-                                    <td><img src="/assets/image/categorises/{{$image}}" alt="" class="table_categorie__image"></td>
+                                    <td><img src="{{$image}}" alt="" class="table_categorie__image"></td>
                                     <td>{{$el->name}}</td>
                                     <td>{{$el->slug}}</td>
                                     <td><a href="{{route('cat-update',$el->id)}}" class="table_link link_update">Изменить</a></td>
@@ -102,6 +109,6 @@
                 };
             ?>
     </div>
-<x-footer/>
+<x-footer-admin/>
 
 

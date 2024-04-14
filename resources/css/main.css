@@ -693,7 +693,8 @@ footer {
 
 .admin_form input[type='text']:focus,
 .admin_form input[type='text']:hover,
-.admin_form textarea {
+.admin_form textarea:focus,
+.admin_form textarea:hover {
     border-color: var(--main-color);
 }
 
@@ -748,6 +749,20 @@ footer {
     border-radius: 5px;
     text-decoration: none;
     background-color: var(--main-color);
+}
+
+.header_admin .burger_wrapper {
+    display: none;
+}
+
+.footer_admin .copyrights_wrapper {
+    border: none;
+}
+
+@media (max-width: 900px) {
+    .header_admin .burger_wrapper {
+        display: block;
+    }
 }
 
 @font-face {

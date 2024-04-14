@@ -1,4 +1,4 @@
-<x-header/>
+<x-header-admin/>
 <div class="bloks_wrapper">
         @if(Session::has('success'))
             <div class="message-success">
@@ -31,9 +31,25 @@
                     <label for="slug">Ярлык</label>
                     <input type="text" name="slug" id="slug" placeholder="Ярлык" value="{{$data->slug}}">
                 </div>
+                <?php
+                    if($data->image) {
+                        $image = $data->image;
+                        $path = "./assets/image/categorises/$image";
+                        if (file_exists($path)) {
+                            $image = "/assets/image/categorises/$image";
+                            echo "odfmjnfivnjifndi";
+                        }
+                        else {
+                            $image = "/assets/image/categorises/image-placeholder.png";
+                        }
+                    }
+                    else {
+                        $image = "/assets/image/categorises/image-placeholder.png";
+                    }
+                ?>
                 <div>
                     <label for="image">Картинка</label>
-                    <img src="/assets/image/categorises/{{$data->image}}" alt="" class="admin_cat__image">
+                    <img src="{{$image}}" alt="" class="admin_cat__image">
                 </div>
                 <div>
                     <label for="image">Выбрать новую картинку</label>
@@ -47,4 +63,4 @@
             </form>
         </div>
     </div>
-<x-footer/>
+<x-footer-admin/>

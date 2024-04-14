@@ -23,8 +23,8 @@ Route::get('/', function () {
 })->name('main');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return redirect()->route('admin');
+})->middleware(['auth', 'verified'])->name('admin');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 Route::group(['middleware' => ['role:admin']], function () { 
     Route::get('/admin', function () {
         return view('admin');
-    });
+    })->name('admin');
 
     Route::get(
         '/admin-cat',

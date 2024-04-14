@@ -1,3 +1,3 @@
-<x-header/>
+<x-header-admin/>
     Admin
-<x-footer/>
+<x-footer-admin/>
