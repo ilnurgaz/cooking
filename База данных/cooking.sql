@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 08 2024 г., 18:32
+-- Время создания: Апр 15 2024 г., 10:39
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -20,6 +20,39 @@ SET time_zone = "+00:00";
 --
 -- База данных: `cooking`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `description`, `slug`, `image`, `created_at`, `updated_at`) VALUES
+(31, '345435', '435345', '34543543', NULL, '2024-04-13 07:19:23', '2024-04-13 07:19:23'),
+(32, 'уцууцуц', 'уцуцуц', 'уцуцуц', NULL, '2024-04-13 07:20:21', '2024-04-13 07:20:21'),
+(33, 'уакау', 'ауауауау', 'ауауауау', 'ahl8cujx2sj1fk4dgxlfoeipg7iturid_thumb_256x256.png', '2024-04-13 07:20:31', '2024-04-13 07:20:31'),
+(34, 'вуцвуу', 'вувувуву', 'вувувуву', NULL, '2024-04-13 07:22:16', '2024-04-13 07:22:16'),
+(35, 'акмамкмк', 'ккмк', 'мкккммк', NULL, '2024-04-13 07:22:20', '2024-04-13 07:22:20'),
+(36, 'мкмкммку', 'мкмкмкм', 'кмкммка', '6159997.jpg', '2024-04-13 07:22:27', '2024-04-13 07:22:27'),
+(38, 'efewffew', 'efwefwfew', 'efewffew', '6159997.jpg', '2024-04-13 07:25:33', '2024-04-13 07:25:33'),
+(39, 'eefwefwef', 'efwefwef', 'efwefwfew', 'image-placeholder.png', '2024-04-13 07:25:37', '2024-04-13 07:25:37'),
+(42, 'vewfwfe', 'ewfewf', 'ewfewfew', '6159997.jpg', '2024-04-13 11:04:16', '2024-04-13 11:04:16'),
+(43, 'efeweff2', 'ewfefwefw3', 'effefew3', 'ahl8cujx2sj1fk4dgxlfoeipg7iturid_thumb_256x256.png', '2024-04-13 11:05:01', '2024-04-14 03:39:04'),
+(44, 'fverfref', 'refrefrer', 'erfrefref', 'free-icon-snack-5989788.png', '2024-04-14 03:40:15', '2024-04-14 03:40:15');
 
 -- --------------------------------------------------------
 
@@ -58,7 +91,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2024_04_08_145137_create_permission_tables', 2);
+(9, '2024_04_08_145137_create_permission_tables', 2),
+(13, '2024_04_12_072236_create_categories_table', 3),
+(14, '2024_04_15_071031_create_recipes_table', 4);
 
 -- --------------------------------------------------------
 
@@ -89,8 +124,9 @@ CREATE TABLE `model_has_roles` (
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
-(1, 'App\\Models\\User', 4),
-(2, 'App\\Models\\User', 6);
+(1, 'App\\Models\\User', 9),
+(2, 'App\\Models\\User', 10),
+(1, 'App\\Models\\User', 11);
 
 -- --------------------------------------------------------
 
@@ -140,6 +176,28 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `recipes`
+--
+
+CREATE TABLE `recipes` (
+  `id` bigint UNSIGNED NOT NULL,
+  `id_user` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_cook` int NOT NULL,
+  `number_servings` int NOT NULL,
+  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `recipes` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category` bigint UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `roles`
 --
 
@@ -156,8 +214,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'user', 'web', '2024-04-08 11:56:37', '2024-04-08 11:56:37'),
-(2, 'admin', 'web', '2024-04-08 11:56:43', '2024-04-08 11:56:43');
+(1, 'user', 'web', '2024-04-11 14:41:53', '2024-04-11 14:41:53'),
+(2, 'admin', 'web', '2024-04-11 14:41:57', '2024-04-11 14:41:57');
 
 -- --------------------------------------------------------
 
@@ -192,12 +250,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(4, 'user', 'user@user.user', NULL, '$2y$10$guL/tPOWHKkW5aGNGx8vQ.SA2IIZKOy8ri9/pOpHWHTYPOJTe22Ti', NULL, '2024-04-08 12:02:58', '2024-04-08 12:02:58'),
-(6, 'admin', 'admin@admin.admin', NULL, '$2y$10$1PtYaPRXMmYwBenn3/aa5ubVNvhxgLbgeQd9lDcxbwunYknyKgMoq', NULL, '2024-04-08 12:18:04', '2024-04-08 12:18:04');
+(9, 'user', 'user@user.user', NULL, '$2y$10$i.JVdBNGdj4C87YVINqiSuIzom5JPvu//p.BdOKK8Y5cKbDfzcZ4C', NULL, '2024-04-11 14:42:52', '2024-04-11 14:42:52'),
+(10, 'admin', 'admin@admin.admin', NULL, '$2y$10$NpIPT0sUzeNKqgmJnBU36ON6ZxeXrONM9EtN3.gNsofRR1Bv5k1Re', NULL, '2024-04-11 14:43:04', '2024-04-14 03:21:46'),
+(11, 'test', 'test@test.test', NULL, '$2y$10$MPsDGs7buA3kpwdnZ6Fpr.vksRtaPMlHjNxUm4SZohoaK8MSRsNwi', NULL, '2024-04-15 03:48:51', '2024-04-15 03:48:51');
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categories_slug_unique` (`slug`);
 
 --
 -- Индексы таблицы `failed_jobs`
@@ -248,6 +314,14 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Индексы таблицы `recipes`
+--
+ALTER TABLE `recipes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `recipes_id_user_foreign` (`id_user`),
+  ADD KEY `recipes_category_foreign` (`category`);
+
+--
 -- Индексы таблицы `roles`
 --
 ALTER TABLE `roles`
@@ -273,6 +347,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
 -- AUTO_INCREMENT для таблицы `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -282,7 +362,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `permissions`
@@ -297,6 +377,12 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT для таблицы `recipes`
+--
+ALTER TABLE `recipes`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `roles`
 --
 ALTER TABLE `roles`
@@ -306,7 +392,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -323,6 +409,13 @@ ALTER TABLE `model_has_permissions`
 --
 ALTER TABLE `model_has_roles`
   ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `recipes`
+--
+ALTER TABLE `recipes`
+  ADD CONSTRAINT `recipes_category_foreign` FOREIGN KEY (`category`) REFERENCES `categories` (`id`),
+  ADD CONSTRAINT `recipes_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `role_has_permissions`
