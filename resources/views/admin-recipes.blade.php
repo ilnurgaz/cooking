@@ -21,7 +21,7 @@
         @endif
         <div class="block_container">
             <h2 class="admin_title">Добавить рецепт</h2>
-            <form action="{{ route('add-category') }}" class="admin_form" method='POST' enctype='multipart/form-data'>
+            <form action="{{ route('admin-add-recipes') }}" class="admin_form" method='post' enctype='multipart/form-data'>
                 @csrf
                 <div>
                     <label for="name">Название</label>
@@ -62,11 +62,6 @@
                     <input type="number" name="number_servings" id="number_servings" min=1 value="1">
                 </div>
                 <div>
-                    <span class="input_rule">
-                    Каждый ингредиент необходимо размещать на новой строке, без ведущих знаков<br>
-                    сметана - 2 ст.л.<br>
-                    лук - 2 шт.<br>
-                    масло - 100 г<br>
                     </span>
                     <label for="ingredients">Ингедиенты</label>
                     <textarea name="ingredients" id="ingredients" class="form_textarea" placeholder="Ингедиенты"></textarea>
@@ -81,7 +76,7 @@
                 </div>
                 <div class="checkbox_wrapper">
                     <label for="recipes">Опупликовать</label>
-                    <input type="checkbox" value="published">
+                    <input type="checkbox" value="published" name='published'>
                 </div>
                 <input type="submit" value="Добавить">
             </form>

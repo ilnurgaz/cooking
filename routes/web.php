@@ -79,6 +79,10 @@ Route::group(['middleware' => ['role:admin']], function () {
         'App\Http\Controllers\AdminController@allRecipes'
     )->name('admin-recipes');
 
+    Route::post(
+        '/admin/add-recipes',
+        'App\Http\Controllers\AdminController@addRecipes'
+    )->name('admin-add-recipes');
 });
 
 Route::get('/css/{file}', function ($file) {
@@ -87,3 +91,4 @@ Route::get('/css/{file}', function ($file) {
 });
 
 require __DIR__.'/auth.php';
+

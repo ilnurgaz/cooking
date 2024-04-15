@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 15 2024 г., 11:51
+-- Время создания: Апр 15 2024 г., 14:40
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -52,7 +52,8 @@ INSERT INTO `categories` (`id`, `name`, `description`, `slug`, `image`, `created
 (39, 'eefwefwef', 'efwefwef', 'efwefwfew', 'image-placeholder.png', '2024-04-13 07:25:37', '2024-04-13 07:25:37'),
 (42, 'vewfwfe', 'ewfewf', 'ewfewfew', '6159997.jpg', '2024-04-13 11:04:16', '2024-04-13 11:04:16'),
 (43, 'efeweff2', 'ewfefwefw3', 'effefew3', 'ahl8cujx2sj1fk4dgxlfoeipg7iturid_thumb_256x256.png', '2024-04-13 11:05:01', '2024-04-14 03:39:04'),
-(44, 'fverfref', 'refrefrer', 'erfrefref', 'free-icon-snack-5989788.png', '2024-04-14 03:40:15', '2024-04-14 03:40:15');
+(44, 'fverfref12', 'refrefrer', 'erfrefref', 'free-icon-snack-5989788.png', '2024-04-14 03:40:15', '2024-04-15 07:57:39'),
+(45, '453434', '453435435', '53345435', 'image-placeholder.png', '2024-04-15 08:05:29', '2024-04-15 08:05:29');
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (9, '2024_04_08_145137_create_permission_tables', 2),
 (13, '2024_04_12_072236_create_categories_table', 3),
-(15, '2024_04_15_071031_create_recipes_table', 4);
+(16, '2024_04_15_071031_create_recipes_table', 4);
 
 -- --------------------------------------------------------
 
@@ -191,10 +192,18 @@ CREATE TABLE `recipes` (
   `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `recipes` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` bigint UNSIGNED NOT NULL,
-  `publish` int NOT NULL,
+  `publish` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `recipes`
+--
+
+INSERT INTO `recipes` (`id`, `id_user`, `name`, `image`, `description`, `video`, `time_cook`, `number_servings`, `ingredients`, `recipes`, `category`, `publish`, `created_at`, `updated_at`) VALUES
+(1, 10, '453453543', 'ahl8cujx2sj1fk4dgxlfoeipg7iturid_thumb_256x256.png', '435345', '435435453', 1, 1, '435453', '435435435', 45, 0, '2024-04-15 08:39:07', '2024-04-15 08:39:07'),
+(2, 10, '435453', '6159997.jpg', '453435', '543453435', 1, 1, '435453', '453453', 45, 1, '2024-04-15 08:39:15', '2024-04-15 08:39:15');
 
 -- --------------------------------------------------------
 
@@ -351,7 +360,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -363,7 +372,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `permissions`
@@ -381,7 +390,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT для таблицы `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

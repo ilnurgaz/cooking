@@ -690,12 +690,20 @@ footer {
     font-size: 16px;
     font-family: 'Roboto';
     padding: 7px 10px;
+    transition: 0.3s;
+}
+
+.admin_form input[type='submit']:focus,
+.admin_form input[type='submit']:hover {
+    opacity: 0.8;
 }
 
 .admin_form input[type='text']:focus,
 .admin_form input[type='text']:hover,
 .admin_form textarea:focus,
-.admin_form textarea:hover {
+.admin_form textarea:hover,
+.admin_form input[type='number']:hover,
+.admin_form input[type='number']:focus {
     border-color: var(--main-color);
 }
 

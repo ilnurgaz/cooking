@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 use App\Models\categories;
 use App\Models\Recipes;
 use Illuminate\Http\Request;
-use App\Http\Requests\AdminRequest;
+use App\Http\Requests\AdminReguest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\categoryRequest;
+use App\Http\Requests\RecipesReguest;
 
 class AdminController extends Controller
 {
@@ -111,5 +112,56 @@ class AdminController extends Controller
         $count = Recipes::count();
         return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories]);
     }
-    
+
+    public function addRecipes(RecipesReguest $reg) {
+        $recipes = new Recipes();
+        $recipes->id_user = Auth::user()->id;
+        $recipes->name = $reg->input('name');
+        $image = $reg->file('image');
+        if($image) {
+            $imageName = $image->getClientOriginalName(); 
+            $recipes->image = $imageName; 
+            $tmpPath = $image->getPathname();
+            $path = public_path('./assets/image/recipes');
+        }
+        else {
+            $recipes->image = 'image-placeholder.png'; 
+        }
+        $recipes->description = $reg->input('description');
+        $recipes->video = $reg->input('video');
+        $recipes->time_cook = $reg->input('time_cook');
+        $recipes->number_servings = $reg->input('number_servings');
+        $recipes-> ingredients  = $reg->input('ingredients');
+        $recipes->recipes = $reg->input('recipes');
+        $recipes->category = $reg->input('category');
+        $publish = $reg->input('published');
+        if ($publish == 'published') {
+            $recipes->publish = 1;
+        }
+        else {
+            $recipes->publish = 0;
+        }
+        
+        try {
+            $recipes->save();
+
+            if($image) {
+                move_uploaded_file($tmpPath, $path . '/' . $imageName);
+            }
+            
+            Session::flash('success', 'Рецепт успешно создан.');
+
+            return redirect()->route('admin-recipes');
+        } catch (\Exception $e) {
+            if ($recipes->exists) {
+                $recipes->delete();
+            }
+
+            Session::flash('error', 'Ошибка добавления.');
+
+            return redirect()->route('admin-recipes');
+        }
+    }
+
+
 }
