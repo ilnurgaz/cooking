@@ -24,7 +24,7 @@
                                                 </li>
                                             @endif
                                             <li class="burger_reg-auth">
-                                                <a href="{{ url('/prifile') }}" class="link header_link">Профиль</a>
+                                                <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>
                                             </li>
                                             <li class="button-target_wrapper">
                                                 <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>

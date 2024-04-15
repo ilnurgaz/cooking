@@ -22,9 +22,15 @@ Route::get('/', function () {
     return view('main');
 })->name('main');
 
-Route::get('/dashboard', function () {
-    return redirect()->route('admin');
-})->middleware(['auth', 'verified'])->name('admin');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        if (auth()->user()->hasRole('admin')) {
+            return redirect()->route('admin');
+        } elseif (auth()->user()->hasRole('user')) {
+            return redirect()->route('profile.edit');
+        } 
+    })->name('dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
