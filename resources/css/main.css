@@ -643,7 +643,8 @@ footer {
     font-family: 'Roboto';
 }
 
-.admin_form input[type='text'] {
+.admin_form input[type='text'],
+.admin_form input[type='number'] {
     max-width: 100%;
     height: 40px;
     padding: 0 10px;
@@ -758,6 +759,46 @@ footer {
 .footer_admin .copyrights_wrapper {
     border: none;
 }
+
+.input_rule {
+    font-size: 14px;
+    font-family: 'Roboto';
+    color: #ff5232;
+    line-height: 1.5;
+}
+
+.admin_form select {
+    max-width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 7px;
+    outline: none;
+    border: #8888885c solid 1px;
+    transition: 0.3s;
+    font-size: 14px;
+    font-family: 'MontserratR';
+    background-color: white;
+}
+
+.admin_form select:focus,
+.admin_form select:hover {
+    border-color: var(--main-color);
+}
+
+.admin_form select span {
+    transition: 0.3s;
+    font-size: 14px;
+    font-family: 'MontserratR';
+}
+
+.admin_form .checkbox_wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+
 
 @media (max-width: 900px) {
     .header_admin .burger_wrapper {

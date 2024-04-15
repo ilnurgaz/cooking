@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 15 2024 г., 10:39
+-- Время создания: Апр 15 2024 г., 11:51
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -93,7 +93,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (9, '2024_04_08_145137_create_permission_tables', 2),
 (13, '2024_04_12_072236_create_categories_table', 3),
-(14, '2024_04_15_071031_create_recipes_table', 4);
+(15, '2024_04_15_071031_create_recipes_table', 4);
 
 -- --------------------------------------------------------
 
@@ -191,6 +191,7 @@ CREATE TABLE `recipes` (
   `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `recipes` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` bigint UNSIGNED NOT NULL,
+  `publish` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -362,7 +363,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `permissions`

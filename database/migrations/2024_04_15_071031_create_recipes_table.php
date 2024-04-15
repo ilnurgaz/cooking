@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('recipes');
             $table->bigInteger('category')->unsigned();
             $table->foreign('category')->references('id')->on('categories');
+            $table->integer('publish');
             $table->timestamps();
         });
     }

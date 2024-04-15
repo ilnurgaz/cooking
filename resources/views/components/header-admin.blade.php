@@ -20,7 +20,7 @@
                                         <a href="{{ route('admin') }}" class="link header_link">Главная</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Рецепты</a>
+                                        <a href="{{ route('admin-recipes') }}" class="link header_link">Рецепты</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('admin-categories') }}" class="link header_link">Категории</a>
@@ -48,7 +48,7 @@
                     <div class="header_column-3">
                         <div class="header_reg-auth__wrapper">
                             <a href="{{ route('admin') }}" class="link header_link">Главная</a>
-                            <a href="{{ route('main') }}" class="link header_link">Рецепты</a>
+                            <a href="{{ route('admin-recipes') }}" class="link header_link">Рецепты</a>
                             <a href="{{ route('admin-categories') }}" class="link header_link">Категории</a>
                             <a href="{{ route('main') }}" class="link header_link">Пользователи</a>
                             <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>

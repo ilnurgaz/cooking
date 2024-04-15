@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\categories;
+use App\Models\Recipes;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequest;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,8 @@ use App\Http\Requests\categoryRequest;
 
 class AdminController extends Controller
 {
+
+    // Categories
 
     public function addCateory(categoryRequest $req) {
 
@@ -98,6 +101,15 @@ class AdminController extends Controller
             Session::flash('error', 'Ошибка обновления.');
             return redirect()->route('cat-update', $id);
         }
+    }
+
+    // Recipes
+
+    public function allRecipes() {
+        $recipes = Recipes::orderBy('created_at', 'desc')->take(10)->get();
+        $categories = categories::orderBy('created_at', 'desc')->get();
+        $count = Recipes::count();
+        return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories]);
     }
     
 }
