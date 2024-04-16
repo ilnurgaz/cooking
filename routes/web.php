@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         if (auth()->user()->hasRole('admin')) {
             return redirect()->route('admin');
         } elseif (auth()->user()->hasRole('user')) {
-            return redirect()->route('profile.edit');
+            return redirect()->route('main');
         } 
     })->name('dashboard');
 });
