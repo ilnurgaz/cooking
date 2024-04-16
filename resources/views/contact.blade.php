@@ -22,7 +22,7 @@
                 <p style="font-size: 25px; text-align: center;">Также вы можете заполнить форму обратной связи ниже:</p>
 
                 @if($errors->any())
-                <div class="alert alert-danger" style="background: red; margin-bottom: 10px;font-family:'Roboto';">
+                <div class="alert-danger">
                     <ul>
                         @foreach($errors->all() as $error)
                         <li>{{ $error}}</li>

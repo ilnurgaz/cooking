@@ -117,6 +117,24 @@ body {
   .btn-success:hover {
     background-color: #ee3d3d;
   }
+
+  .alert-danger {
+    background-color: #ff0019;
+    color: #fff;
+    padding: 15px;
+    border: 1px solid #eb2337;
+    border-radius: 7px;
+    margin-bottom: 10px;
+  }
+  
+  .alert-danger ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .alert-danger li {
+    margin-bottom: 5px;
+  }
   
   
 

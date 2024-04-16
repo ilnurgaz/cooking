@@ -13,7 +13,7 @@ class ContactRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,14 +26,17 @@ class ContactRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-           'subject' => 'required|min:5|max50',
-           'message' => 'required|min:15|max500',
+           'subject' => 'required|min:5',
+           'message' => 'required|min:15',
 
         ];
     }
-    public function attributes(){
+    public function messages(){
         return [
-            'name' => 'имя'
+            'name.required' => 'Поле имя является обязательным',
+            'email.required' => 'Поле email является обязательным',
+            'subject.required' => 'Поле Тема является обязательным',
+            'message.required' => 'Поле Сообщение является обязательным',
         ];
     }
 }
