@@ -47,8 +47,6 @@ body {
     padding: 0;
   }
   
-
-  
   ul li a {
     text-decoration: none;
   }
@@ -137,5 +135,44 @@ body {
   }
   
   
+  /* Устройства с шириной экрана менее 768px */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .obr-form {
+    min-width: 80%;
+    padding: 15px;
+  }
+
+  .input-obr, textarea {
+    min-width: 100%;
+  }
+}
+
+/* Устройства с шириной экрана менее 576px */
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .obr-form {
+    min-width: 90%;
+  }
+}
+
 
   
