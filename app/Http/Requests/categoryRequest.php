@@ -25,7 +25,7 @@ class categoryRequest extends FormRequest
         return [
             'name' => 'required',
             'description' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
             'slug' => 'required'
         ];
     }
@@ -35,6 +35,9 @@ class categoryRequest extends FormRequest
         return [
             'name.required' => "Поле Имя является обязательным.",
             'slug.required' => "Поле Ярлык является обязательным.",
+            'image.image' => "Файл должен быть изображением.",
+            'image.mimes' => "Изображение должно быть в формате: jpeg, png, jpg.",
+            'image.max' => "Максимальный размер изображения должен быть 2MB.",
         ];
     }
 }

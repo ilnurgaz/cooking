@@ -1,3 +1,6 @@
+<?php
+use App\Models\categories;
+?>
 <x-header-admin/>
     <div class="bloks_wrapper">
         @if(Session::has('success'))
@@ -74,10 +77,6 @@
                     <label for="description">Дополнительная информация</label>
                     <textarea name="description" id="description" class="form_textarea" placeholder="Дополнительная информация"></textarea>
                 </div>
-                <div class="checkbox_wrapper">
-                    <label for="recipes">Опупликовать</label>
-                    <input type="checkbox" value="published" name='published'>
-                </div>
                 <input type="submit" value="Добавить">
             </form>
         </div>
@@ -86,36 +85,57 @@
             ?>
                 <div class="block_container">
                     <h2 class="admin_title">Рецепты</h2>
+                    <div class="admin_ricipes_filter">
+                        <form action="{{ route('recipes-cat-fil', 'cat') }}" class="admin_form form_row" method='post' enctype='multipart/form-data'>
+                            @csrf
+                            <div class="">
+                                <label for="category">Категория</label>
+                                <select name="category" id="category">
+                                    <?php
+                                        foreach($categories as $cat) {
+                                            $catName = $cat->name;
+                                            $catId = $cat->id;
+                                            echo "
+                                                <option value='$catId'>$catName</option>
+                                            ";
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <input type="submit" value="Применить">
+                        </form>
+                    </div>
                     <table class="admin_table table_categories">
                         <thead>
                             <th>Картинка</th>
                             <th>Название</th>
-                            <th>Ярлык</th>
+                            <th>Категория</th>
                             <th colspan='2'>Действия</th>
                         </thead>
                         <tbody>
                             @foreach($data as $el)
                                 <?php
+                                $category = categories::where('id', $el->category)->first();
                                     if($el->image) {
                                         $image = $el->image;
-                                        $path = "./assets/image/categorises/$image";
+                                        $path = "./assets/image/recipes/$image";
                                         if (file_exists($path)) {
-                                            $image = "/assets/image/categorises/$image";
+                                            $image = "/assets/image/recipes/$image";
                                         }
                                         else {
-                                            $image = "/assets/image/categorises/image-placeholder.png";
+                                            $image = "/assets/image/recipes/image-placeholder.png";
                                         }
                                     }
                                     else {
-                                        $image = "/assets/image/categorises/image-placeholder.png";
+                                        $image = "/assets/image/recipes/image-placeholder.png";
                                     }
                                 ?>
                                 <tr>
                                     <td><img src="{{$image}}" alt="" class="table_categorie__image"></td>
                                     <td>{{$el->name}}</td>
-                                    <td>{{$el->slug}}</td>
-                                    <td><a href="{{route('cat-update',$el->id)}}" class="table_link link_update">Изменить</a></td>
-                                    <td><a href="{{route('cat-delete',$el->id)}}" class="table_link link_delete">Удалить</a></td>
+                                    <td>{{$category->name}}</td>
+                                    <td><a href="{{route('recipes-update',$el->id)}}" class="table_link link_update">Изменить</a></td>
+                                    <td><a href="{{route('recipes-delete',$el->id)}}" class="table_link link_delete">Удалить</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -125,16 +145,31 @@
                         $page_count = ceil($count / 10);
                         if($page_count > 1) {
                             echo "<div class='block_container'><div class='pagination_wrapper'>";
-                            echo "<a href='/admin-cat/0' class='pagination_link'><<</a>";
+                            if ($cat_pag) {
+                                echo "<a href='/admin-recipes/cat/$categoryName/0' class='pagination_link'><<</a>";
+                            }
+                            else {
+                                echo "<a href='/admin-recipes/0' class='pagination_link'><<</a>";
+                            }
                             $currentPage = $page + 1;
                             $start = max($currentPage - 3, 1);
                             $end = min($currentPage + 3, $page_count);
                             for ($i = $start; $i <= $end; $i++) {
                                 $p = $i - 1;
                                 $pag_class = ($page == $p) ? "pagination_link-active" : "pagination_link";
-                                echo "<a href='/admin-cat/$p' class='$pag_class'>$i</a>";
+                                if ($cat_pag) {
+                                    echo "<a href='/admin-recipes/cat/$categoryName/$p' class='$pag_class'>$i</a>";
+                                }
+                                else {
+                                    echo "<a href='/admin-recipes/$p' class='$pag_class'>$i</a>";
+                                }
                             }
-                            echo "<a href='/admin-cat/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
+                            if ($cat_pag) {
+                                echo "<a href='/admin-recipes/cat/$categoryName/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
+                            }
+                            else {
+                                echo "<a href='/admin-recipes/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
+                            }
                             echo "</div></div>";
                         }
                     ?>
