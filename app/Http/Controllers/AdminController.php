@@ -69,25 +69,15 @@ class AdminController extends Controller
     }
 
     public function deleteCategory($id) {
-        // Находим категорию по ID
         $category = categories::find($id);
-    
-        // Если категория найдена
         if ($category) {
-            // Находим все рецепты с этой категорией
             $recipes = Recipes::where('category', $category->id)->get();
-    
-            // Удаляем найденные рецепты
             foreach ($recipes as $recipe) {
                 $recipe->delete();
             }
-    
-            // Удаляем саму категорию
             $category->delete();
-    
-            return redirect()->back()->with('success', 'Категория и связанные с ней рецепты были удалены.');
+            return redirect()->back()->with('success', 'Категория удалена.');
         } else {
-            // Если категория не найдена
             return redirect()->back()->with('error', 'Категория не найдена.');
         }
     }
