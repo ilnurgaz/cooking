@@ -8,6 +8,7 @@ use App\Http\Requests\AdminReguest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\categoryRequest;
+use App\Http\Requests\categoryUpdateRequest;
 use App\Http\Requests\RecipesReguest;
 
 class AdminController extends Controller
@@ -87,7 +88,7 @@ class AdminController extends Controller
         return view('admin-cat-update', ['data' => $category->find($id)]);
     }
 
-    public function updateCategoryController(categoryRequest $reg, $id) {
+    public function updateCategoryController(categoryUpdateRequest $reg, $id) {
         $category = categories::find($id);
         $category->name = $reg->input('name');
         $category->description = $reg->input('description');

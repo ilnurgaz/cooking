@@ -104,7 +104,7 @@ use App\Models\categories;
                     <label for="description">Дополнительная информация</label>
                     <textarea name="description" id="description" class="form_textarea" placeholder="Дополнительная информация">{{$data->description }}</textarea>
                 </div>
-                <input type="submit" value="Добавить">
+                <input type="submit" value="Изменить">
             </form>
         </div>
     </div>

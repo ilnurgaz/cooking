@@ -21,7 +21,7 @@
         @endif
         <div class="block_container">
             <h2 class="admin_title">Изменить категорию</h2>
-            <form action="{{ route('cat-update-controller', $data->id) }}" class="admin_form" method='get' enctype='multipart/form-data'>
+            <form action="{{ route('cat-update-controller', $data->id) }}" class="admin_form" method='post' enctype='multipart/form-data'>
                 @csrf
                 <div>
                     <label for="name">Название</label>
@@ -58,7 +58,7 @@
                     <label for="description">Описание</label>
                     <textarea name="description" id="description" class="form_textarea" placeholder="Описание">{{$data->description}}</textarea>
                 </div>
-                <input type="submit" value="Добавить">
+                <input type="submit" value="Изменить">
             </form>
         </div>
     </div>
