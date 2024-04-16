@@ -53,7 +53,7 @@
                                         <a href="{{ route('main') }}" class="link header_link">Статьи</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Контакты</a>
+                                        <a href="{{ route('contact') }}" class="link header_link">Контакты</a>
                                     </li>
                                 </ul>
                             </nav>

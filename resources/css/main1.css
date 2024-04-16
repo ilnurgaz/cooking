@@ -1,7 +1,21 @@
 /* Базовые стили для страницы контактов */
+@font-face {
+    font-family: MontserratB; 
+    src: url('../assets/fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: MontserratR; 
+    src: url('../assets/fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Roboto; 
+    src: url('../assets/fonts/RobotoFlex.ttf') format('truetype');
+}
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto';
   }
   
   .container {

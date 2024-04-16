@@ -14,10 +14,25 @@
                 </div>
 
 
+              
+
+
 
                 <div class="form">
                 <p style="font-size: 25px; text-align: center;">Также вы можете заполнить форму обратной связи ниже:</p>
-                    <form class="obr-form" action="/contact/submit" method="post">
+
+                @if($errors->any())
+                <div class="alert alert-danger" style="background: red; margin-bottom: 10px;font-family:'Roboto';">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                
+                    <form class="obr-form" action="{{ route ('contact-form')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <label for="name">Введите имя</label>
                             <input class="input-obr" type="text" name="name" placeholder="Введите имя" id="name" class="form-control">
