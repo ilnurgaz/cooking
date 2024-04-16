@@ -22,6 +22,13 @@ Route::get('/', function () {
     return view('main');
 })->name('main');
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         if (auth()->user()->hasRole('admin')) {
