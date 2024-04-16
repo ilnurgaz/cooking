@@ -37,7 +37,6 @@
                         $path = "./assets/image/categorises/$image";
                         if (file_exists($path)) {
                             $image = "/assets/image/categorises/$image";
-                            echo "odfmjnfivnjifndi";
                         }
                         else {
                             $image = "/assets/image/categorises/image-placeholder.png";

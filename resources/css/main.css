@@ -806,12 +806,29 @@ footer {
     align-items: center;
 }
 
-
-
 @media (max-width: 900px) {
     .header_admin .burger_wrapper {
         display: block;
     }
+}
+
+.admin_ricipes_filter {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.form_row {
+    flex-direction: row;
+    align-items: end;
+}
+
+.admin_ricipes_filter .form_row select {
+    min-width: 200px;
+}
+
+.admin_ricipes_filter .form_row input[type='submit'] {
+    height: 40px;
 }
 
 @font-face {

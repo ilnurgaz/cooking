@@ -60,7 +60,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     )->name('add-category');
 
     Route::get(
-        '/admin-cat//{id}/delete',
+        '/admin-cat/{id}/delete',
         'App\Http\Controllers\AdminController@deleteCategory'
     )->name('cat-delete');
 
@@ -79,10 +79,45 @@ Route::group(['middleware' => ['role:admin']], function () {
         'App\Http\Controllers\AdminController@allRecipes'
     )->name('admin-recipes');
 
+    Route::get(
+        '/admin-recipes/{page}',
+        'App\Http\Controllers\AdminController@allRecipesPagination'
+    )->name('admin-recipes-pagination');
+
     Route::post(
         '/admin/add-recipes',
         'App\Http\Controllers\AdminController@addRecipes'
     )->name('admin-add-recipes');
+
+    Route::get(
+        '/admin-recipes/{id}/delete',
+        'App\Http\Controllers\AdminController@deleteRecipes'
+    )->name('recipes-delete');
+
+    Route::get(
+        '/admin-recipes/{id}/update',
+        'App\Http\Controllers\AdminController@updateRecipes'
+    )->name('recipes-update');
+
+    Route::post(
+        '/admin/{id}/recipes-update-controller',
+        'App\Http\Controllers\AdminController@updateRecipesController'
+    )->name('recipes-update-controller');
+
+    Route::post(
+        '/admin-recipes/fil',
+        'App\Http\Controllers\AdminController@allRecipesFilter'
+    )->name('recipes-cat-fil');
+
+    Route::get(
+        '/admin-recipes/cat/{category}',
+        'App\Http\Controllers\AdminController@allRecipesCat'
+    )->name('recipes-cat');
+    Route::get(
+        '/admin-recipes/cat/{category}/{page}',
+        'App\Http\Controllers\AdminController@allRecipesCatPagination'
+    )->name('recipes-cat-pagination');
+
 });
 
 Route::get('/css/{file}', function ($file) {
