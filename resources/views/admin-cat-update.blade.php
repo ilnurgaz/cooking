@@ -58,7 +58,7 @@
                     <label for="description">Описание</label>
                     <textarea name="description" id="description" class="form_textarea" placeholder="Описание">{{$data->description}}</textarea>
                 </div>
-                <input type="submit" value="Добавить">
+                <input type="submit" value="Изменить">
             </form>
         </div>
     </div>
