@@ -30,6 +30,13 @@
                     </ul>
                 </div>
                 @endif
+
+
+                @if(session('success'))
+                <div class="alert-success">
+                    {{ session('success')}}
+                </div>
+                @endif
                 
                     <form class="obr-form" action="{{ route ('contact-form')}}" method="post">
                         @csrf
