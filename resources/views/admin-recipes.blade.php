@@ -1,5 +1,7 @@
 <?php
 use App\Models\categories;
+use PhpParser\Node\Stmt\Else_;
+
 ?>
 <x-header-admin/>
     <div class="bloks_wrapper">
@@ -80,11 +82,19 @@ use App\Models\categories;
                 <input type="submit" value="Добавить">
             </form>
         </div>
-            <?php
-                if($count > 0) {
-            ?>
                 <div class="block_container">
+                    <?php
+                        if($count > 0) {
+                            
+                    ?>
                     <h2 class="admin_title">Рецепты</h2>
+                    <?php
+                        } else {
+                    ?>
+                    <h2 class="admin_title">Рецептов нет</h2>
+                    <?php
+                        }
+                    ?>
                     <div class="admin_ricipes_filter">
                         <form action="{{ route('recipes-cat-fil', 'cat') }}" class="admin_form form_row" method='post' enctype='multipart/form-data'>
                             @csrf
@@ -95,8 +105,20 @@ use App\Models\categories;
                                         foreach($categories as $cat) {
                                             $catName = $cat->name;
                                             $catId = $cat->id;
+                                            if ($cat_pag) {
+                                                if ($categoryName == $catName) {
+                                                    $selected = 'selected';
+                                                }
+                                                else {
+                                                    $selected = '';
+                                                }
+                                            }
+                                            else {
+                                                $selected = '';
+                                            }
+                                                
                                             echo "
-                                                <option value='$catId'>$catName</option>
+                                                <option $selected value='$catId'>$catName</option>
                                             ";
                                         }
                                     ?>
@@ -105,6 +127,10 @@ use App\Models\categories;
                             <input type="submit" value="Применить">
                         </form>
                     </div>
+                    <?php
+                        if($count > 0) {
+                            
+                    ?>
                     <table class="admin_table table_categories">
                         <thead>
                             <th>Картинка</th>
@@ -174,13 +200,7 @@ use App\Models\categories;
                         }
                     ?>
             <?php
-                } else {
-            ?>
-                <div class="block_container">
-                    <h2 class="admin_title">Рецептов нет</h2>
-                </div>
-            <?php
-                };
+                } 
             ?>
     </div>
 <x-footer-admin/>
