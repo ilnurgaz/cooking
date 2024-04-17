@@ -54,6 +54,7 @@
                         <div class="header_reg-auth__wrapper">
                             <a href="{{ route('admin') }}" class="link header_link">Главная</a>
                             <a href="{{ route('contact-data') }}" class="link header_link">Сообщения</a>
+                            <a href="{{ route('admin-articles') }}" class="link header_link">Cтатьи</a>
                             <a href="{{ route('admin-recipes') }}" class="link header_link">Рецепты</a>
                             <a href="{{ route('admin-categories') }}" class="link header_link">Категории</a>
                             <a href="{{ route('main') }}" class="link header_link">Пользователи</a>

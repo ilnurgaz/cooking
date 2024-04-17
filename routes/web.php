@@ -26,8 +26,13 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/articles', function () {
+    return view('articles');
+})->name('articles');
+
 Route::post('/contact/submit', 'App\Http\Controllers\ContactController@submit')-> name ('contact-form');
-Route::get('/contact/all', 'App\Http\Controllers\ContactController@allData')-> name ('contact-data');
+
+
 
 
 
@@ -127,6 +132,21 @@ Route::group(['middleware' => ['role:admin']], function () {
         '/admin-recipes/cat/{category}/{page}',
         'App\Http\Controllers\AdminController@allRecipesCatPagination'
     )->name('recipes-cat-pagination');
+
+    Route::get(
+        '/contact/all', 
+        'App\Http\Controllers\ContactController@allData'
+    )-> name ('contact-data');
+
+    Route::get('/admin-articles', function () {
+        return view('admin-articles');
+    })->name('admin-articles');
+
+    Route::post(
+        '/admin-articles/submit', 
+        'App\Http\Controllers\ArticlesController@submit'
+    )->name('articles-form');;
+
 
 });
 

@@ -23,9 +23,7 @@
                                                 <li>
                                                     <a href="{{ route('admin') }}" class="link header_link">Панель администратора</a>
                                                 </li>
-                                                <li>
-                                                    <a href="{{ route('contact-data') }}" class="link header_link">Сообщения</a>
-                                                </li>
+                                                
                                             @endif
                                             <li class="burger_reg-auth">
                                                 <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>
@@ -53,7 +51,7 @@
                                         <a href="{{ route('main') }}" class="link header_link">Рецепты</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Статьи</a>
+                                        <a href="{{ route('articles') }}" class="link header_link">Статьи</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('contact') }}" class="link header_link">Контакты</a>
