@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
         <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/main1.css">
+
         <script type="text/javascript" src="../assets/js/burger_menu.js"></script>
     </head>
     <body class="antialiased">
@@ -18,6 +20,9 @@
                                 <ul>
                                     <li>
                                         <a href="{{ route('admin') }}" class="link header_link">Главная</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('contact-data') }}" class="link header_link">Сообщения</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('admin-recipes') }}" class="link header_link">Рецепты</a>
@@ -48,6 +53,7 @@
                     <div class="header_column-3">
                         <div class="header_reg-auth__wrapper">
                             <a href="{{ route('admin') }}" class="link header_link">Главная</a>
+                            <a href="{{ route('contact-data') }}" class="link header_link">Сообщения</a>
                             <a href="{{ route('admin-recipes') }}" class="link header_link">Рецепты</a>
                             <a href="{{ route('admin-categories') }}" class="link header_link">Категории</a>
                             <a href="{{ route('main') }}" class="link header_link">Пользователи</a>

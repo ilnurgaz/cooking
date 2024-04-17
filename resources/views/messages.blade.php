@@ -1,4 +1,4 @@
-<x-header/>
+<x-header-admin/>
 <div style="  margin: 0 auto;">
     <h1 style="text-align: center;">Все сообщения</h1>
 </div>
