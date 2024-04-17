@@ -23,6 +23,9 @@
                                                 <li>
                                                     <a href="{{ route('admin') }}" class="link header_link">Панель администратора</a>
                                                 </li>
+                                                <li>
+                                                    <a href="{{ route('contact-data') }}" class="link header_link">Сообщения</a>
+                                                </li>
                                             @endif
                                             <li class="burger_reg-auth">
                                                 <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>
