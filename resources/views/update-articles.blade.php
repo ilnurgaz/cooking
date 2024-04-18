@@ -1,6 +1,6 @@
 <x-header-admin/>
-
-@if($errors->any())
+    <div class="bloks_wrapper">
+    @if($errors->any())
                 <div class="alert-danger">
                     <ul>
                         @foreach($errors->all() as $error)
@@ -9,25 +9,25 @@
                     </ul>
                 </div>
                 @endif
-
-<form class="obr-form" action="{{ route ('articles-update-submit', $data->id)}}" method="post" enctype='multipart/form-data'>
+        <div class="block_container">
+            <h2 class="admin_title">Обновить статью</h2>
+            <form class="admin_form" action="{{ route ('articles-update-submit', $data->id)}}" method="post" enctype='multipart/form-data'>
                         @csrf
-                        <div class="form-group">
+                        <div>
                             <label for="name">Название новости</label>
-                            <input class="input-obr" type="text" value="{{$data->theme}}" name="theme" placeholder="Введите название" id="theme">
+                            <input type="text" value="{{$data->theme}}" name="theme" placeholder="Введите название" id="theme">
                         </div>
-    
-                        <div class="form-group">
+                        <div>
                             <label for="email">Картинка</label>
                             <input type="file" name="image"  id="image">
                         </div>
-    
-                        <div class="form-group">
+                        <div>
                             <label for="message">Содеражние</label>
-                            <textarea name="content"  id="content" class="form-control" placeholder="Введите текст">{{$data->content}}</textarea>
+                            <textarea name="content"  id="content" class="form_textarea" placeholder="Введите текст">{{$data->content}}</textarea>
                         </div>
-    
-                         <button type="submit" class="btn-success">Обновить</button>
-    
+                        <input type="submit" value="Обновить">
                     </form>
+        </div>
+    </div>
+
 <x-footer-admin/>

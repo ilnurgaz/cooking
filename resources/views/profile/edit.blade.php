@@ -1,29 +1,18 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+<x-header/>
+    <div class="profile_container">
+        <div class="profile_wrapper">
+            <div class="">
+                @include('profile.partials.update-profile-information-form')
             </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
+            <div class="">
+                @include('profile.partials.update-password-form')
             </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
+            <div class="">
+                <form action="{{route('logout')}}" method="post" class="form_logout">
+                    @csrf
+                    <input type="submit" value="Выйти" class="form_button">
+                </form>
             </div>
         </div>
     </div>
-</x-app-layout>
+<x-footer/>
