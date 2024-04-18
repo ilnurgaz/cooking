@@ -10,7 +10,7 @@
                 </div>
                 @endif
 
-<form class="obr-form" action="{{ route ('articles-form')}}" method="post">
+<form class="obr-form" action="{{ route ('articles-form')}}" method="post" enctype='multipart/form-data'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Название новости</label>
