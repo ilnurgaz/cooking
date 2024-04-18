@@ -14,11 +14,9 @@
     src: url('../assets/fonts/RobotoFlex.ttf') format('truetype');
 }
 
-body {
-    font-family: 'Roboto';
-  }
   
   .container-1 {
+    font-family: 'Roboto';
     width: 900px;
     margin: 0 auto;
   }
@@ -69,7 +67,7 @@ body {
     margin-bottom: 15px;
   }
   
-  label {
+  .labl {
     display: block;
     margin-bottom: 5px;
   }
@@ -170,11 +168,9 @@ body {
 
 /* Базовые стили message */
 
-body {
-  font-family: 'Roboto';
-}
-
 .alert-info {
+  font-family: 'Roboto';
+
   background-color: #d9edf7;
   min-width: 800px;
   margin: 0 auto;
@@ -187,7 +183,7 @@ body {
 }
 
 
-small {
+.smals {
   font-size: 12px;
   color: #777;
 }
@@ -207,9 +203,6 @@ small {
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
 
   .alert-info {
     padding: 15px;
@@ -219,7 +212,7 @@ small {
     font-size: 18px;
   }
 
-  small {
+  .smals {
     font-size: 11px;
   }
 

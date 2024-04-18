@@ -14,15 +14,15 @@
             <form class="admin_form" action="{{ route ('articles-update-submit', $data->id)}}" method="post" enctype='multipart/form-data'>
                         @csrf
                         <div>
-                            <label for="name">Название новости</label>
+                            <label class="labl" for="name">Название новости</label>
                             <input type="text" value="{{$data->theme}}" name="theme" placeholder="Введите название" id="theme">
                         </div>
                         <div>
-                            <label for="email">Картинка</label>
+                            <label class="labl" for="email">Картинка</label>
                             <input type="file" name="image"  id="image">
                         </div>
                         <div>
-                            <label for="message">Содеражние</label>
+                            <label class="labl" for="message">Содеражние</label>
                             <textarea name="content"  id="content" class="form_textarea" placeholder="Введите текст">{{$data->content}}</textarea>
                         </div>
                         <input type="submit" value="Обновить">

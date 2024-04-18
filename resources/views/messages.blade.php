@@ -8,7 +8,7 @@
     <p>{{ $el->email}}</p>
     <p>{{ $el->subject}}</p>
     <p>{{ $el->message}}</p>
-    <p> <small> {{ $el->created_at}}</small> </p>
+    <p> <small class="smals"> {{ $el->created_at}}</small> </p>
 </div>
 @endforeach
 <x-footer-admin/>

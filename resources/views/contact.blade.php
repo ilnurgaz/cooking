@@ -41,22 +41,22 @@
                     <form class="obr-form" action="{{ route ('contact-form')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Введите имя</label>
+                            <label class="labl" for="name">Введите имя</label>
                             <input class="input-obr" type="text" name="name" placeholder="Введите имя" id="name" class="form-control">
                         </div>
     
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label class="labl" for="email">Email</label>
                             <input class="input-obr" type="text" name="email" placeholder="Введите email" id="email" class="form-control">
                         </div>
     
                         <div class="form-group">
-                            <label for="subject">Тема сообщения</label>
+                            <label class="labl" for="subject">Тема сообщения</label>
                             <input class="input-obr" type="text" name="subject" placeholder="Тема сообщения" id="subject" class="form-control">
                         </div>
     
                         <div class="form-group">
-                            <label for="message">Сообщение</label>
+                            <label class="labl" for="message">Сообщение</label>
                             <textarea name="message" id="message" class="form-control" placeholder="Введите сообщение"></textarea>
                         </div>
                          <button type="submit" class="btn-success">Отправить</button>
