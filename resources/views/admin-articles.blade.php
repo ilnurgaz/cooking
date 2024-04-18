@@ -10,11 +10,11 @@
                 </div>
                 @endif
         <div class="block_container">
-            <h2 class="admin_title">Добавить новость</h2>
+            <h2 class="admin_title">Добавить статью</h2>
             <form class="admin_form" action="{{ route ('articles-form')}}" method="post" enctype='multipart/form-data'>
                 @csrf
                 <div>
-                    <label for="name">Название новости</label>
+                    <label for="name">Название статьи</label>
                     <input type="text" name="theme" placeholder="Введите название" id="theme">
                 </div>
                 <div>
