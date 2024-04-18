@@ -145,14 +145,30 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post(
         '/admin-articles/submit', 
         'App\Http\Controllers\ArticlesController@submit'
-    )->name('articles-form');;
+    )->name('articles-form');
 
     Route::get(
         '/admin-articles/all', 
         'App\Http\Controllers\ArticlesController@allData'
-    )->name('articles-data');;
+    )->name('articles-data');
 
+    Route::get(
+        '/admin-users', 
+        'App\Http\Controllers\AdminController@allUsers'
+    )->name('admin-users');
 
+    Route::get(
+        '/admin-users/{page}', 
+        'App\Http\Controllers\AdminController@allUsersPagination'
+    )->name('admin-users-pagination');
+
+    Route::get(
+        '/admin-users-delete/{id}', 
+        'App\Http\Controllers\AdminController@userDelete'
+    )->name('admin-users-delete');
+
+    
+    
 });
 
 Route::get('/css/{file}', function ($file) {
