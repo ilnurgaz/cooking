@@ -6,7 +6,7 @@
         <img src="/assets/image/articles/{{ $el->image}}" alt="">
     </div>
     <p>{{ $el->content}}</p>
-    @if(Auth::user()->hasRole('admin'))
+    @if(Auth::check() && Auth::user()->hasRole('admin'))
     <a href="{{ route ('articles-data-one', $el->id)}}"> <button class="btn-wawning">Детальнее</button> </a>
     @endif
 </div>

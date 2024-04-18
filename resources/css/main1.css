@@ -96,7 +96,7 @@ body {
 
   
   
-  textarea {
+  .form-control {
     height: 100px;
     resize: none;
   }
@@ -249,5 +249,19 @@ small {
 .alert-img img{
   max-width: 750px;
   margin-bottom: 15px;
+}
+
+/* Устройства с шириной экрана менее 992px */
+@media screen and (max-width: 992px) {
+  .alert-articles {
+    min-width: 100%;
+  }
+}
+
+/* Устройства с шириной экрана менее 768px */
+@media screen and (max-width: 768px) {
+  .alert-img img {
+    max-width: 100%;
+  }
 }
 
