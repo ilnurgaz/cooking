@@ -32,6 +32,11 @@ Route::get('/articles', function () {
 
 Route::post('/contact/submit', 'App\Http\Controllers\ContactController@submit')-> name ('contact-form');
 
+Route::get(
+    '/admin-articles/all', 
+    'App\Http\Controllers\ArticlesController@allData'
+)->name('articles-data');
+
 
 
 
@@ -145,14 +150,29 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post(
         '/admin-articles/submit', 
         'App\Http\Controllers\ArticlesController@submit'
-    )->name('articles-form');;
+    )->name('articles-form');
 
     Route::get(
-        '/admin-articles/all', 
-        'App\Http\Controllers\ArticlesController@allData'
-    )->name('articles-data');;
+        '/admin-articles/all/{id}', 
+        'App\Http\Controllers\ArticlesController@showOneMessage'
+    )->name('articles-data-one');
 
+    Route::get(
+        '/admin-articles/all/{id}/update', 
+        'App\Http\Controllers\ArticlesController@updateArticles'
+    )->name('articles-update');
 
+    Route::post(
+        '/admin-articles/all/{id}/update', 
+        'App\Http\Controllers\ArticlesController@updateArticlesSubmit'
+    )->name('articles-update-submit');
+
+    Route::get(
+        '/admin-articles/all/{id}/delete', 
+        'App\Http\Controllers\ArticlesController@deleteArticles'
+    )->name('articles-delete');
+
+   
 });
 
 Route::get('/css/{file}', function ($file) {

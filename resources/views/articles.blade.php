@@ -1,9 +1,14 @@
 <x-header/>
 @foreach($data as $el)
-<div class="alert-info">
+<div class="alert-articles">
     <h1>{{ $el->theme}}</h1>
-    <img src="/assets/image/articles/{{ $el->image}}" alt="">
+    <div class="alert-img">
+        <img src="/assets/image/articles/{{ $el->image}}" alt="">
+    </div>
     <p>{{ $el->content}}</p>
+    @if(Auth::user()->hasRole('admin'))
+    <a href="{{ route ('articles-data-one', $el->id)}}"> <button class="btn-wawning">Детальнее</button> </a>
+    @endif
 </div>
 @endforeach
 <x-footer/>

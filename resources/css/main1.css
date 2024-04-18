@@ -235,4 +235,19 @@ small {
   }
 }
 
-  
+
+/* Стили для вывода статьи */
+
+.alert-articles {
+  margin: 0 auto;
+  background-color: #d9edf7;
+  min-width: 800px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.alert-img img{
+  max-width: 750px;
+  margin-bottom: 15px;
+}
+
