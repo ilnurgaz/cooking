@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\categories;
 use App\Models\Recipes;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminReguest;
 use Illuminate\Support\Facades\Auth;
@@ -243,4 +244,30 @@ class AdminController extends Controller
         }
     }
 
+    // Users
+
+    public function allUsers() {
+        $users = User::orderBy('created_at', 'desc')->take(20)->get();
+        $count = User::count();
+        return view('admin-users', ['data' => $users, 'count' => $count, 'page' => 0, 'cat_pag' => false]);
+    }
+
+    public function allUsersPagination($page) {
+        $offset = $page * 20;
+        $users = User::orderBy('created_at', 'desc')->skip($offset)->take(20)->get();
+        $count = User::count();
+        return view('admin-users', ['data' => $users, 'count' => $count, 'page' => $page, 'cat_pag' => false]);
+    }
+
+    public function userDelete($id) {
+        $user = User::find($id);
+        $recipes = Recipes::where('id_user', $user->id)->get();
+        foreach ($recipes as $recipe) {
+            $recipe->delete();
+        }
+        $user->delete();
+        return redirect()->back()->with('success', 'Пользователь был удален.');
+    }
+
+    
 }

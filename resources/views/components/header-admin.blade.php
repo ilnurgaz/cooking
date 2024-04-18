@@ -25,13 +25,16 @@
                                         <a href="{{ route('contact-data') }}" class="link header_link">Сообщения</a>
                                     </li>
                                     <li>
+                                    <a href="{{ route('admin-articles') }}" class="link header_link">Cтатьи</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('admin-recipes') }}" class="link header_link">Рецепты</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('admin-categories') }}" class="link header_link">Категории</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Пользователи</a>
+                                        <a href="{{ route('admin-users') }}" class="link header_link">Пользователи</a>
                                     </li>
                                     <li class="burger_reg-auth">
                                         <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>
@@ -57,7 +60,7 @@
                             <a href="{{ route('admin-articles') }}" class="link header_link">Cтатьи</a>
                             <a href="{{ route('admin-recipes') }}" class="link header_link">Рецепты</a>
                             <a href="{{ route('admin-categories') }}" class="link header_link">Категории</a>
-                            <a href="{{ route('main') }}" class="link header_link">Пользователи</a>
+                            <a href="{{ route('admin-users') }}" class="link header_link">Пользователи</a>
                             <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>
                         </div>
                     </div>
