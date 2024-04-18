@@ -175,25 +175,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 
    
 =======
-        '/admin-articles/all', 
-        'App\Http\Controllers\ArticlesController@allData'
-    )->name('articles-data');
-
-    Route::get(
-        '/admin-users', 
-        'App\Http\Controllers\AdminController@allUsers'
-    )->name('admin-users');
-
-    Route::get(
-        '/admin-users/{page}', 
-        'App\Http\Controllers\AdminController@allUsersPagination'
-    )->name('admin-users-pagination');
-
-    Route::get(
-        '/admin-users-delete/{id}', 
-        'App\Http\Controllers\AdminController@userDelete'
-    )->name('admin-users-delete');
-
+    
     
     
 >>>>>>> 3940d93e7bf81e290dd248e4cee90a7c6f463960
