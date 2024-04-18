@@ -23,7 +23,7 @@
                 </div>
                 <div>
                     <label for="message">Содеражние</label>
-                    <textarea name="content" id="content" class="form_textarea" placeholder="Введите текст"></textarea>
+                    <textarea type="text" name="content" id="content" class="form_textarea" placeholder="Введите текст"></textarea>
                 </div>
                 <input type="submit" value="Опубликовать">
             </form>

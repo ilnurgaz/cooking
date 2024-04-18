@@ -1,13 +1,13 @@
 <x-header/>
-    <div class="container">
+    <div class="container-1">
         <div class="row">
             <div class="col-md-12">
                 <div class="contact">
 
-                    <h1 id="text">Контакты</h1>
-                    <p>Свяжитесь с нами любым удобным для вас способом:</p>
-                    <ul style="font-size: 25px; margin-bottom: 15px; line-height: 2;">
-                        <li><strong>Email:</strong> <a href="mailto:info@culinaryrecipes.com">info@culinaryrecipes.com</a></li>
+                    <h1 id="text" class="heading">Контакты</h1>
+                    <p  style="font-size: 35px; margin-bottom: 25px;">Свяжитесь с нами любым удобным для вас способом:</p>
+                    <ul class="ull" style="font-size: 25px; margin-bottom: 15px; line-height: 2;">
+                        <li class="lii" ><strong>Email:</strong> <a href="mailto:info@culinaryrecipes.com">info@culinaryrecipes.com</a></li>
                         <li><strong>Телефон:</strong> +7 (495) 123-45-67</li>
                         <li><strong>Адрес:</strong> г. Москва, ул. Ленина, д. 1</li>
                     </ul>
@@ -19,7 +19,7 @@
 
 
                 <div class="form">
-                <p style="font-size: 25px; text-align: center;">Также вы можете заполнить форму обратной связи ниже:</p>
+                <p class="pp" style="font-size: 25px; text-align: center;margin-bottom: 25px;">Также вы можете заполнить форму обратной связи ниже:</p>
 
                 @if($errors->any())
                 <div class="alert-danger">
