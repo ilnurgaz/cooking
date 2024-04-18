@@ -153,7 +153,6 @@ Route::group(['middleware' => ['role:admin']], function () {
     )->name('articles-form');
 
     Route::get(
-<<<<<<< HEAD
         '/admin-articles/all/{id}', 
         'App\Http\Controllers\ArticlesController@showOneMessage'
     )->name('articles-data-one');
@@ -173,12 +172,20 @@ Route::group(['middleware' => ['role:admin']], function () {
         'App\Http\Controllers\ArticlesController@deleteArticles'
     )->name('articles-delete');
 
-   
-=======
-    
-    
-    
->>>>>>> 3940d93e7bf81e290dd248e4cee90a7c6f463960
+    Route::get(
+        '/admin-users', 
+        'App\Http\Controllers\AdminController@allUsers'
+    )->name('admin-users');
+
+    Route::get(
+        '/admin-users/{page}', 
+        'App\Http\Controllers\AdminController@allUsersPagination'
+    )->name('admin-users-pagination');
+
+    Route::get(
+        '/admin-users-delete/{id}', 
+        'App\Http\Controllers\AdminController@userDelete'
+    )->name('admin-users-delete');
 });
 
 Route::get('/css/{file}', function ($file) {
