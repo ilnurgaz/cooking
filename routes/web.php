@@ -147,6 +147,11 @@ Route::group(['middleware' => ['role:admin']], function () {
         'App\Http\Controllers\ArticlesController@submit'
     )->name('articles-form');;
 
+    Route::get(
+        '/admin-articles/all', 
+        'App\Http\Controllers\ArticlesController@allData'
+    )->name('articles-data');;
+
 
 });
 

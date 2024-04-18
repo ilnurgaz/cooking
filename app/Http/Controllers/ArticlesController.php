@@ -18,4 +18,8 @@ class ArticlesController extends Controller
 
      return redirect()->route('admin-articles');
     }
+
+    public function allData() {
+        return view('articles', ['data' => Articles::all()]);
+    }
 }
