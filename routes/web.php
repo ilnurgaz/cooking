@@ -60,9 +60,10 @@ Route::middleware('auth')->group(function () {
 
 
 Route::group(['middleware' => ['role:admin']], function () { 
-    Route::get('/admin', function () {
-        return view('admin');
-    })->name('admin');
+    Route::get(
+        '/admin',
+        'App\Http\Controllers\AdminController@adminMain'
+    )->name('admin');
 
     Route::get(
         '/admin-cat',

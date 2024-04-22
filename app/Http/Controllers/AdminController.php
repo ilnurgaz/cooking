@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\categories;
 use App\Models\Recipes;
 use App\Models\User;
+use App\Models\Articles;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminReguest;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +16,15 @@ use App\Http\Requests\RecipesReguest;
 
 class AdminController extends Controller
 {
+
+    public function adminMain() {
+        $count_cat = categories::count();
+        $count_recipes = Recipes::count();
+        $count_users = User::count();
+        $count_articles = Articles::count();
+        $count_contact = Contact::count();
+        return view('admin', ['count_cat' => $count_cat,'count_recipes' => $count_recipes, 'count_users' => $count_users, 'count_articles' => $count_articles, 'count_contact' => $count_contact,]);
+    }
 
     // Categories
 

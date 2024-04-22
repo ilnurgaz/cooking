@@ -892,6 +892,42 @@ footer {
     max-width: 100px;
 }
 
+.admin_main_wrapper {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.admin_main_wrapper .admin_main_el {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin_main_wrapper .admin_main_el h3 {
+    font-size: 20px;
+    font-family: 'Roboto';
+}
+
+.admin_main_wrapper .admin_main_el div {
+    font-size: 20px;
+    font-family: 'Roboto';
+}
+
+.admin_main_wrapper a {
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.admin_main_wrapper a:hover {
+    color: #ff5232;
+}
+
 
 @font-face {
     font-family: MontserratB; 
