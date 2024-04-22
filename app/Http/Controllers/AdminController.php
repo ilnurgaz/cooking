@@ -128,11 +128,20 @@ class AdminController extends Controller
 
     // Recipes
 
-    public function allRecipes() {
-        $recipes = Recipes::orderBy('created_at', 'desc')->take(10)->get();
-        $categories = categories::orderBy('created_at', 'desc')->get();
-        $count = Recipes::count();
-        return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories, 'cat_pag' => false]);
+    public function allRecipes(Request $req) {
+        $searchTerm = $req->input('search');
+        if($searchTerm) {
+            $recipes = Recipes::where('name', 'like', '%' . $searchTerm . '%')->get();
+            $count = Recipes::where('name', 'like', '%' . $searchTerm . '%')->count();
+            $categories = categories::orderBy('created_at', 'desc')->get();
+            return view('admin-recipes-s', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories,]);
+        }
+        else {
+            $recipes = Recipes::orderBy('created_at', 'desc')->take(10)->get();
+            $count = Recipes::count();
+            $categories = categories::orderBy('created_at', 'desc')->get();
+            return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories, 'cat_pag' => false]);
+        }
     }
 
     public function allRecipesPagination($page) {

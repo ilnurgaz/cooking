@@ -48,7 +48,7 @@
                         </a>
                     </div> 
                     <div class="header_column-2">
-                        <form action="" class="header_seacrh__wrapper">
+                        <form action="/admin-recipes" method="get"  class="header_seacrh__wrapper">
                             <input type="text" placeholder="Поиск рецептов" class="header_seacrh__input" name='search' id="search">
                             <button type="submit" class="header_seacrh__button" name='submit' id="submit"><img src="/assets/image/icon/search.svg" alt=""></button>
                         </form>

@@ -134,6 +134,7 @@ Route::group(['middleware' => ['role:admin']], function () {
         '/admin-recipes/cat/{category}',
         'App\Http\Controllers\AdminController@allRecipesCat'
     )->name('recipes-cat');
+
     Route::get(
         '/admin-recipes/cat/{category}/{page}',
         'App\Http\Controllers\AdminController@allRecipesCatPagination'
