@@ -289,5 +289,19 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Пользователь был удален.');
     }
 
+    // Articles
+
+    public function allArticles() {
+        $articles = Articles::orderBy('created_at', 'desc')->take(10)->get();
+        $count = Articles::all()->count();
+        return view('admin-articles', ['data' => $articles, 'count' => $count, 'page' => 0]);
+    }
+    
+    public function allArticlesPagination($page) {
+        $offset = $page * 10;
+        $articles = Articles::orderBy('created_at', 'desc')->skip($offset)->take(10)->get();
+        $count = Articles::all()->count();
+        return view('admin-articles', ['data' => $articles, 'count' => $count, 'page' => $page]);
+    }
     
 }

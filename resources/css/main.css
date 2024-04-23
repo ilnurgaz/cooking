@@ -547,6 +547,11 @@ footer {
     font-family: 'Roboto';
 }
 
+.title {
+    font-size: 32px;
+    font-family: 'Roboto';
+}
+
 .admin_table thead {
     border-bottom: #33333338 solid 1px;
 }

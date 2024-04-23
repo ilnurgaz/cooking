@@ -30,11 +30,20 @@ class ArticlesController extends Controller
 
      $articles->save();
 
-     return redirect()->route('admin-articles');
+     return redirect()->back();
     }
 
     public function allData() {
-        return view('articles', ['data' => Articles::all()]);
+        $articles = Articles::orderBy('created_at', 'desc')->take(10)->get();
+        $count = Articles::orderBy('created_at', 'desc')->count();
+        return view('articles', ['data' => $articles, 'count' => $count, 'page' => 0]);
+    }
+
+    public function allDataPagination($page) {
+        $offset = $page * 10;
+        $articles = Articles::orderBy('created_at', 'desc')->skip($offset)->take(10)->get();
+        $count = Articles::all()->count();
+        return view('articles', ['data' => $articles, 'count' => $count, 'page' => $page]);
     }
 
     public function showOneMessage($id){
@@ -69,12 +78,12 @@ class ArticlesController extends Controller
    
         $articles->save();
    
-        return redirect()->route('articles-data');
+        return redirect()->back();
        }
 
     public function deleteArticles($id) {
         Articles::find($id)->delete();
-        return redirect()->route('articles-data');
+        return redirect()->back();
 
 
 

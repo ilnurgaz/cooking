@@ -222,30 +222,21 @@
 /* Стили для вывода статьи */
 
 .alert-articles {
-  margin: 0 auto;
-  background-color: #d9edf7;
-  min-width: 800px;
-  max-width: 800px;
+  background-color: aliceblue;
+  width: 100%;
   padding: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  border-radius: 15px;
 }
 
 .alert-img img{
-  max-width: 750px;
-  margin-bottom: 15px;
+  width: 150px;
 }
 
-/* Устройства с шириной экрана менее 992px */
-@media screen and (max-width: 992px) {
-  .alert-articles {
-    min-width: 100%;
-  }
-}
-
-/* Устройства с шириной экрана менее 768px */
-@media screen and (max-width: 768px) {
-  .alert-img img {
-    max-width: 100%;
-  }
+.articles_title {
+  font-size: 24px;
+  font-family: 'Roboto';
 }
 

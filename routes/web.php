@@ -37,6 +37,11 @@ Route::get(
     'App\Http\Controllers\ArticlesController@allData'
 )->name('articles-data');
 
+Route::get(
+    '/admin-articles/all/{page}', 
+    'App\Http\Controllers\ArticlesController@allDataPagination'
+)->name('articles-data-pagination');
+
 
 
 
@@ -145,9 +150,15 @@ Route::group(['middleware' => ['role:admin']], function () {
         'App\Http\Controllers\ContactController@allData'
     )-> name ('contact-data');
 
-    Route::get('/admin-articles', function () {
-        return view('admin-articles');
-    })->name('admin-articles');
+    Route::get(
+        '/admin-articles',
+        'App\Http\Controllers\AdminController@allArticles'
+    )->name('admin-articles');
+
+    Route::get(
+        '/admin-articles/{page}', 
+        'App\Http\Controllers\AdminController@allArticlesPagination'
+    )->name('admin-articles-pagination');
 
     Route::post(
         '/admin-articles/submit', 
