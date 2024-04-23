@@ -679,7 +679,8 @@ footer {
     font-family: 'MontserratR';
 }
 
-.admin_form textarea {
+.admin_form textarea,
+.form_r_a .form-textarea {
     max-width: 100%;
     height: 40px;
     padding: 0 10px;
@@ -721,6 +722,8 @@ footer {
 .admin_form input[type='text']:hover,
 .admin_form textarea:focus,
 .admin_form textarea:hover,
+.form_r_a .form-textarea:hover,
+.form_r_a .form-textarea:focus,
 .admin_form input[type='number']:hover,
 .admin_form input[type='number']:focus {
     border-color: var(--main-color);

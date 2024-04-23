@@ -13,11 +13,6 @@
                     </ul>
                 </div>
 
-
-              
-
-
-
                 <div class="form">
                 <p class="pp" style="font-size: 25px; text-align: center;margin-bottom: 25px;">Также вы можете заполнить форму обратной связи ниже:</p>
 
@@ -38,28 +33,30 @@
                 </div>
                 @endif
                 
-                    <form class="obr-form" action="{{ route ('contact-form')}}" method="post">
+                    <form class="form_r_a" action="{{ route ('contact-form')}}" method="post">
                         @csrf
-                        <div class="form-group">
+                        <div>
                             <label class="labl" for="name">Введите имя</label>
                             <input class="input-obr" type="text" name="name" placeholder="Введите имя" id="name" class="form-control">
                         </div>
     
-                        <div class="form-group">
+                        <div>
                             <label class="labl" for="email">Email</label>
                             <input class="input-obr" type="text" name="email" placeholder="Введите email" id="email" class="form-control">
                         </div>
     
-                        <div class="form-group">
+                        <div>
                             <label class="labl" for="subject">Тема сообщения</label>
                             <input class="input-obr" type="text" name="subject" placeholder="Тема сообщения" id="subject" class="form-control">
                         </div>
     
-                        <div class="form-group">
+                        <div>
                             <label class="labl" for="message">Сообщение</label>
-                            <textarea name="message" id="message" class="form-control" placeholder="Введите сообщение"></textarea>
+                            <textarea name="message" id="message" class="form-textarea" placeholder="Введите сообщение"></textarea>
                         </div>
-                         <button type="submit" class="btn-success">Отправить</button>
+                        <div class="">
+                            <button type="submit" class="form_button">Отправить</button>
+                        </div>
     
                     </form>
                 </div>
