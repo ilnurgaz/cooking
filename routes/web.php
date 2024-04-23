@@ -42,6 +42,20 @@ Route::get(
     'App\Http\Controllers\ArticlesController@allDataPagination'
 )->name('articles-data-pagination');
 
+Route::get(
+    '/recipes', 
+    'App\Http\Controllers\UserController@recipes'
+)->name('recipes');
+
+Route::get(
+    '/recipes/{page}', 
+    'App\Http\Controllers\UserController@recipesPagination'
+)->name('recipes-pagination');
+
+Route::get(
+    '/articles/{id}', 
+    'App\Http\Controllers\ArticlesController@showOneMessage'
+)->name('articles-data-one');
 
 
 
@@ -164,11 +178,6 @@ Route::group(['middleware' => ['role:admin']], function () {
         '/admin-articles/submit', 
         'App\Http\Controllers\ArticlesController@submit'
     )->name('articles-form');
-
-    Route::get(
-        '/admin-articles/all/{id}', 
-        'App\Http\Controllers\ArticlesController@showOneMessage'
-    )->name('articles-data-one');
 
     Route::get(
         '/admin-articles/all/{id}/update', 

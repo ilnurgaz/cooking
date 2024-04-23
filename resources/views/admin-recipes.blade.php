@@ -1,7 +1,5 @@
 <?php
-use App\Models\categories;
-use PhpParser\Node\Stmt\Else_;
-
+    use App\Models\categories;
 ?>
 <x-header-admin/>
     <div class="bloks_wrapper">

@@ -8,10 +8,8 @@
             <div class="alert-img">
                 <img src="/assets/image/articles/{{ $el->image}}" alt="">
             </div>
-            <p style="font-size: 20px;">{{ $el->content}}</p>
-            @if(Auth::check() && Auth::user()->hasRole('admin'))
-            <a href="{{ route ('articles-data-one', $el->id)}}"> <button class="btn-wawning">Детальнее</button> </a>
-            @endif
+            <p style="font-size: 20px;" class="articles_description">{{ $el->content}}</p>
+            <a href="{{ route ('articles-data-one', $el->id)}}" class="link">Подробнее</a>
         </div>
         @endforeach
         </div>

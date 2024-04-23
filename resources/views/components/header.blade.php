@@ -48,7 +48,7 @@
                                         <a href="{{ route('main') }}" class="link header_link">Главная</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('main') }}" class="link header_link">Рецепты</a>
+                                        <a href="{{ route('recipes') }}" class="link header_link">Рецепты</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('articles-data') }}" class="link header_link">Статьи</a>
