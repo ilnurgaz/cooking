@@ -134,7 +134,7 @@ class AdminController extends Controller
             $recipes = Recipes::where('name', 'like', '%' . $searchTerm . '%')->get();
             $count = Recipes::where('name', 'like', '%' . $searchTerm . '%')->count();
             $categories = categories::orderBy('created_at', 'desc')->get();
-            return view('admin-recipes-s', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories,]);
+            return view('admin-recipes-s', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories, 'cat_pag' => false]);
         }
         else {
             $recipes = Recipes::orderBy('created_at', 'desc')->take(10)->get();

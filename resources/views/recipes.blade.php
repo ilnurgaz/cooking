@@ -6,6 +6,17 @@
         <div class="block_container">
             <h2 class="title-2">Все рецепты</h2>
             <div class="category_wrapper">
+                <?php
+                    if ($cat_active) {
+                        echo "
+                            <a href='/recipes'>
+                                <div class='category_el'>
+                                Все
+                                </div>
+                            </a>
+                        ";
+                    }
+                ?>
                 @foreach($categories as $el)
                     <a href="/recipes/category/{{$el->name}}">
                         <div class="category_el
