@@ -1,3 +1,11 @@
+@section('title-block')
+Все рецепты с фото
+@endsection
+
+@section('description-block')
+От классических блюд до современных изысков, от сытных основных блюд до аппетитных десертов — мы собрали все, что нужно, чтобы побаловать свои вкусовые рецепторы.
+@endsection
+
 <?php
     use App\Models\categories;
 ?>

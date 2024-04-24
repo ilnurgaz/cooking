@@ -1,5 +1,5 @@
 @section('title-block')
-Статьи
+Интересные статьи
 @endsection
 
 @section('description-block')
