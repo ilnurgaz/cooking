@@ -1,3 +1,11 @@
+@section('title-block')
+Статьи
+@endsection
+
+@section('description-block')
+Добро пожаловать в наш раздел статей, где мы делимся ценными знаниями и советами, которые помогут вам стать настоящим мастером кулинарного искусства.
+@endsection
+
 <x-header/>
     <div class="bloks_wrapper">
         <div class="block_container">

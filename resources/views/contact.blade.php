@@ -1,3 +1,11 @@
+@section('title-block')
+Контакты
+@endsection
+
+@section('description-block')
+Мы всегда рады общаться с вами и отвечать на любые ваши вопросы или запросы. Свяжитесь с нами любым удобным для вас способом
+@endsection
+
 <x-header/>
     <div class="container-1">
         <div class="row">

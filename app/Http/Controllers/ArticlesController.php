@@ -88,4 +88,19 @@ class ArticlesController extends Controller
 
 
     }
+
+    public function show($id)
+    {
+        $articles = Articles::find($id);
+    
+        $this->setTitle($articles->theme);
+        $this->setDescription($articles->content);
+    
+        return view('articles.show', compact('articles'));
+    }
+    
+
+
+
+
 }
