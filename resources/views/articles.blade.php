@@ -14,7 +14,7 @@
         <div class="alert-articles">
             <h1 class="articles_title">{{ $el->theme}}</h1>
             <div class="alert-img">
-                <img src="/assets/image/articles/{{ $el->image}}" alt="">
+                <img src="/assets/image/articles/{{ $el->image}}" alt="{{ $el -> image}}" title="{{ substr($el -> image, 0, strrpos($el -> image, ".")) }}">
             </div>
             <p style="font-size: 20px;" class="articles_description">{{ $el->content}}</p>
             <a href="{{ route ('articles-data-one', $el->id)}}" class="link">Подробнее</a>

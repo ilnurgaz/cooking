@@ -1157,3 +1157,7 @@ footer {
     font-family: Roboto; 
     src: url('../assets/fonts/RobotoFlex.ttf') format('truetype');
 }
+
+ .recipes_image {
+    max-height: 44%;
+}
