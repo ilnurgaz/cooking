@@ -232,7 +232,8 @@
 }
 
 .alert-img img{
-  width: 150px;
+ 
+  width: 250px;
 }
 
 .articles_title {
@@ -240,3 +241,7 @@
   font-family: 'Roboto';
 }
 
+.articles_p_ {
+  line-height: 25px;
+
+}
