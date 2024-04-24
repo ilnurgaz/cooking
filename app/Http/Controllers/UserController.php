@@ -15,7 +15,7 @@ class UserController extends Controller
         $categories = categories::orderBy('created_at', 'desc')->get();
         $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
         $recipes = Recipes::orderBy('created_at', 'desc')->take(20)->get();
-        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => 0, 'articles' => $articles]);
+        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => 0, 'articles' => $articles, 'cat_pag' => false]);
     }
 
     public function recipesPagination($page) {
@@ -24,8 +24,26 @@ class UserController extends Controller
         $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
         $categories = categories::orderBy('created_at', 'desc')->get();
         $recipes = Recipes::orderBy('created_at', 'desc')->offset($offset)->take(20)->get();
-        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'articles' => $articles]);
+        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'articles' => $articles, 'cat_pag' => false]);
     }
 
+    public function recipesCategory($category) {
+        $category_id = categories::where('name', $category)->get();
+        $categories = categories::orderBy('created_at', 'desc')->get();
+        $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
+        $recipes = Recipes::where('category', $category_id[0]->id)->take(20)->get();
+        $count_recipes = Recipes::where('category', $category_id[0]->id)->count();
+        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => 0, 'articles' => $articles, 'cat_active' => $category_id[0]->name, 'cat_pag' => false]);
+    }
+
+    public function recipesCategoryPagination($category, $page) {
+        $offset = $page * 20;
+        $category_id = categories::where('name', $category)->get();
+        $categories = categories::orderBy('created_at', 'desc')->get();
+        $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
+        $recipes = Recipes::where('category', $category_id[0]->id)->take(20)->offset($offset)->get();
+        $count_recipes = Recipes::where('category', $category_id[0]->id)->count();
+        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'articles' => $articles, 'cat_active' => $category_id[0]->name, 'cat_pag' => true]);
+    }
     
 }

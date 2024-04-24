@@ -7,8 +7,14 @@
             <h2 class="title-2">Все рецепты</h2>
             <div class="category_wrapper">
                 @foreach($categories as $el)
-                    <a href="">
-                        <div class="category_el">
+                    <a href="/recipes/category/{{$el->name}}">
+                        <div class="category_el
+                        <?php
+                            if ($cat_active == $el->name) {
+                                echo " active";
+                            }
+                        ?>
+                        ">
                             {{$el->name}}
                         </div>
                     </a>
@@ -17,7 +23,10 @@
         </div>
         <div class="block_container">
             <div class="recipes_wrapper">
-                @foreach($recipes as $el)
+                <?php 
+                    if($count > 0) {
+                    ?>
+                        @foreach($recipes as $el)
                     <div class="recipes_el">
                         <div class="recipes_title">
                             <a href="" class="recipes_link">
@@ -59,22 +68,45 @@
                         </div>
                     </div>
                 @endforeach
+                    <?php
+                    }
+                    else {
+                        echo "
+                        <h2 class='title-2'>Рецептов нет</h2>
+                        ";
+                    }
+                ?>
             </div>
         </div>
         <?php
             $page_count = ceil($count / 20);
             if($page_count > 1) {
                 echo "<div class='block_container'><div class='pagination_wrapper'>";
-                echo "<a href='/recipes/0' class='pagination_link'><<</a>";
+                if($cat_pag) {
+                    echo "<a href='/recipes/category/$cat_active/0' class='pagination_link'><<</a>";
+                }
+                else {
+                    echo "<a href='/recipes/category/$cat_active/0' class='pagination_link'><<</a>";
+                }
                 $currentPage = $page + 1;
                 $start = max($currentPage - 3, 1);
                 $end = min($currentPage + 3, $page_count);
                 for ($i = $start; $i <= $end; $i++) {
                     $p = $i - 1;
                     $pag_class = ($page == $p) ? "pagination_link-active" : "pagination_link";
-                        echo "<a href='/recipes/$p' class='$pag_class'>$i</a>";
+                        if($cat_pag) {
+                            echo "<a href='/recipes/category/$cat_active/$p' class='$pag_class'>$i</a>";
+                        }
+                        else {
+                            echo "<a href='/recipes/category/$cat_active/$p' class='$pag_class'>$i</a>";
+                        }
                 }
-                echo "<a href='/recipes/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
+                if($cat_pag) {
+                    echo "<a href='/recipes/category/$cat_active/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
+                }
+                else {
+                    echo "<a href='/recipes/category/$cat_active/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
+                }
                 echo "</div></div>";
             }
         ?>

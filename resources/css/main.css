@@ -1137,6 +1137,11 @@ footer {
     overflow: hidden;
 }
 
+.active {
+    background-color: var(--main-color) !important;
+    color: white;
+}
+
 
 @font-face {
     font-family: MontserratB; 

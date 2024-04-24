@@ -53,9 +53,21 @@ Route::get(
 )->name('recipes-pagination');
 
 Route::get(
+    '/recipes/category/{category}', 
+    'App\Http\Controllers\UserController@recipesCategory'
+)->name('recipes-cat');
+
+Route::get(
+    '/recipes/category/{category}/{page}', 
+    'App\Http\Controllers\UserController@recipesCategoryPagination'
+)->name('recipes-cat-pagination');
+
+Route::get(
     '/articles/{id}', 
     'App\Http\Controllers\ArticlesController@showOneMessage'
 )->name('articles-data-one');
+
+
 
 
 
