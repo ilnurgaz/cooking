@@ -69,7 +69,7 @@
                             $category = categories::where('id', $el->category)->first();
                         ?>
                         <a href="" class="recipes_link">
-                            <img src="{{$image}}" alt="" class="recipes_image">
+                            <img src="{{$image}}" alt="" class="recipes_image" title="{{ substr($el -> image, 0, strrpos($el -> image, ".")) }}">
                         </a>
                         <div class="line"></div>
                         <div class="category">

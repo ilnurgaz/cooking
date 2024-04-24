@@ -12,7 +12,7 @@ class ArticlesController extends Controller
      $articles = new Articles();
      $articles->theme = $req->input('theme');
      $articles->content = $req->input('content');
-
+     
      $image = $req->file('image');
      if($image) {
          $imageName = $image->getClientOriginalName(); 

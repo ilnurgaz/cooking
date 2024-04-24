@@ -525,22 +525,7 @@ footer {
     padding: 7px 10px;
 }
 
-.bloks_wrapper {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 20px;
-}
 
-.block_container {
-    width: 100%;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
 .admin_title {
     font-size: 32px;
@@ -1122,7 +1107,9 @@ footer {
 }
 
 .articles_image_ {
-    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 550px;
 }
 
 .articles_p_ {
@@ -1161,3 +1148,5 @@ footer {
  .recipes_image {
     max-height: 44%;
 }
+
+  

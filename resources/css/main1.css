@@ -221,6 +221,23 @@
 
 /* Стили для вывода статьи */
 
+.bloks_wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.block_container {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .alert-articles {
   background-color: aliceblue;
   width: 100%;
