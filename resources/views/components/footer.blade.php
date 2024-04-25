@@ -26,9 +26,9 @@
                         <div class="footer_column-2">
                             <div class="footer_menu__wrapper">
                                 <a href="{{ route('main') }}" class="link footer_link">Главная</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Рецепты</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Статьи</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Контакты</a>
+                                <a href="{{ route('recipes') }}" class="link footer_link">Рецепты</a>
+                                <a href="{{ route('articles-data') }}" class="link footer_link">Статьи</a>
+                                <a href="{{ route('contact') }}" class="link footer_link">Контакты</a>
                             </div>
                         </div>
                         <div class="footer_column-3">

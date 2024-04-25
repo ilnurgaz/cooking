@@ -44,16 +44,16 @@
                                 <?php
                                     if($el->image) {
                                         $image = $el->image;
-                                        $path = "./assets/image/categorises/$image";
+                                        $path = "./assets/image/articles/$image";
                                         if (file_exists($path)) {
-                                            $image = "/assets/image/categorises/$image";
+                                            $image = "/assets/image/articles/$image";
                                         }
                                         else {
-                                            $image = "/assets/image/categorises/image-placeholder.png";
+                                            $image = "/assets/image/articles/image-placeholder.png";
                                         }
                                     }
                                     else {
-                                        $image = "/assets/image/categorises/image-placeholder.png";
+                                        $image = "/assets/image/articles/image-placeholder.png";
                                     }
                                 ?>
                                 <tr>

@@ -1124,9 +1124,13 @@ footer {
     overflow: hidden;
 }
 
-.active {
+.category_wrapper .active {
     background-color: var(--main-color) !important;
     color: white;
+}
+
+.recipes_image {
+    max-height: 44%;
 }
 
 
@@ -1145,8 +1149,5 @@ footer {
     src: url('../assets/fonts/RobotoFlex.ttf') format('truetype');
 }
 
- .recipes_image {
-    max-height: 44%;
-}
 
   

@@ -26,10 +26,10 @@
                     }
                 ?>
                 @foreach($categories as $el)
-                    <a href="/recipes/category/{{$el->name}}">
+                    <a href="/recipes/category/{{$el->slug}}">
                         <div class="category_el
                         <?php
-                            if ($cat_active == $el->name) {
+                            if ($cat_active == $el->slug) {
                                 echo " active";
                             }
                         ?>

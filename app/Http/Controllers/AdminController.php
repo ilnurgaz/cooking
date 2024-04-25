@@ -133,13 +133,13 @@ class AdminController extends Controller
         if($searchTerm) {
             $recipes = Recipes::where('name', 'like', '%' . $searchTerm . '%')->get();
             $count = Recipes::where('name', 'like', '%' . $searchTerm . '%')->count();
-            $categories = categories::orderBy('created_at', 'desc')->get();
+            $categories = categories::orderBy('created_at', 'asc')->get();
             return view('admin-recipes-s', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories, 'cat_pag' => false]);
         }
         else {
             $recipes = Recipes::orderBy('created_at', 'desc')->take(10)->get();
             $count = Recipes::count();
-            $categories = categories::orderBy('created_at', 'desc')->get();
+            $categories = categories::orderBy('created_at', 'asc')->get();
             return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories, 'cat_pag' => false]);
         }
     }
@@ -147,7 +147,7 @@ class AdminController extends Controller
     public function allRecipesPagination($page) {
         $offset = $page * 10;
         $count = Recipes::count();
-        $categories = categories::orderBy('created_at', 'desc')->get();
+        $categories = categories::orderBy('created_at', 'asc')->get();
         $recipes = Recipes::orderBy('created_at', 'desc')->skip($offset)->take(10)->get();
         return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => $page, 'categories' => $categories,'cat_pag' => false]);
     }
@@ -155,27 +155,27 @@ class AdminController extends Controller
     public function allRecipesFilter(Request $reg) {
         $categoryId = $reg->input('category');
         $categoryArr = categories::where('id', $categoryId)->orderBy('created_at', 'desc')->get();
-        $category = $categoryArr[0]->name;
+        $category = $categoryArr[0]->slug;
         return redirect()->route('recipes-cat', ['category' => $category]);
     }
 
     public function allRecipesCat(Request $reg, $category) {
-        $category = categories::where('name', $category)->orderBy('created_at', 'desc')->get();
+        $category = categories::where('slug', $category)->orderBy('created_at', 'desc')->get();
         $categoryId = $category[0]->id;
-        $categories = categories::orderBy('created_at', 'desc')->get();
+        $categories = categories::orderBy('created_at', 'asc')->get();
         $count = Recipes::where('category', $categoryId)->count();
         $recipes = Recipes::where('category', $categoryId)->orderBy('created_at', 'desc')->take(10)->get();
-        return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories, 'cat_pag' => true, 'categoryName' => $category[0]->name]);
+        return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => 0, 'categories' => $categories, 'cat_pag' => true, 'categoryName' => $category[0]->slug]);
     }
 
     public function allRecipesCatPagination($category, $page) {
         $offset = $page * 10;
-        $category = categories::where('name', $category)->orderBy('created_at', 'desc')->get();
+        $category = categories::where('slug', $category)->orderBy('created_at', 'desc')->get();
         $categoryId = $category[0]->id;
-        $categories = categories::orderBy('created_at', 'desc')->get();
+        $categories = categories::orderBy('created_at', 'asc')->get();
         $count = Recipes::where('category', $categoryId)->count();
         $recipes = Recipes::where('category', $categoryId)->orderBy('created_at', 'desc')->skip($offset)->take(10)->get();
-        return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => $page, 'categories' => $categories, 'cat_pag' => true, 'categoryName' => $category[0]->name]);
+        return view('admin-recipes', ['data' => $recipes, 'count' => $count, 'page' => $page, 'categories' => $categories, 'cat_pag' => true, 'categoryName' => $category[0]->slug]);
     }
 
     public function addRecipes(RecipesReguest $reg) {

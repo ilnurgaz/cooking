@@ -33,7 +33,7 @@ Route::get('/articles', function () {
 Route::post('/contact/submit', 'App\Http\Controllers\ContactController@submit')-> name ('contact-form');
 
 Route::get(
-    '/admin-articles/all', 
+    '/articles/all', 
     'App\Http\Controllers\ArticlesController@allData'
 )->name('articles-data');
 
