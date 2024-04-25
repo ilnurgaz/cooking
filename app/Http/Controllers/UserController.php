@@ -7,6 +7,8 @@ use App\Models\Articles;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Http\Requests\RecipesReguest;
 
 class UserController extends Controller
 {
@@ -68,6 +70,56 @@ class UserController extends Controller
         $category = categories::where('id', $recipe->category)->get();
         return view('recipe-page', ['data' => $recipe, 'category' => $category[0]->name, 'cat_slug' => $category[0]->slug]);
     }
+
+    public function addRecipes() {
+        $categories = categories::orderBy('created_at', 'asc')->get();
+        return view('add-recipes', ['categories' => $categories]);
+    }
+
+    public function addRecipesController(RecipesReguest $reg) {
+        $recipes = new Recipes();
+        $recipes->id_user = Auth::user()->id;
+        $recipes->name = $reg->input('name');
+        $image = $reg->file('image');
+        if($image) {
+            $imageName = $image->getClientOriginalName(); 
+            $recipes->image = $imageName; 
+            $tmpPath = $image->getPathname();
+            $path = public_path('./assets/image/recipes');
+        }
+        else {
+            $recipes->image = 'image-placeholder.png'; 
+        }
+        $recipes->description = $reg->input('description');
+        $recipes->video = $reg->input('video');
+        $recipes->time_cook = $reg->input('time_cook');
+        $recipes->number_servings = $reg->input('number_servings');
+        $recipes-> ingredients  = $reg->input('ingredients');
+        $recipes->recipes = $reg->input('recipes');
+        $recipes->category = $reg->input('category');
+        $recipes->publish = 1;
+
+        try {
+            $recipes->save();
+
+            if($image) {
+                move_uploaded_file($tmpPath, $path . '/' . $imageName);
+            }
+            
+            Session::flash('success', 'Рецепт успешно создан.');
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            if ($recipes->exists) {
+                $recipes->delete();
+            }
+
+            Session::flash('error', 'Ошибка добавления.');
+
+            return redirect()->back();
+        }
+    }
+    
     
     
 }

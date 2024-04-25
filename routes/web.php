@@ -72,6 +72,16 @@ Route::get(
     'App\Http\Controllers\ArticlesController@showOneMessage'
 )->name('articles-data-one');
 
+Route::get(
+    '/add-recipes', 
+    'App\Http\Controllers\UserController@addRecipes'
+)->name('add-recipes');
+
+Route::post(
+    '/add-recipes-controller', 
+    'App\Http\Controllers\UserController@addRecipesController'
+)->name('add-recipes-controller');
+
 
 
 

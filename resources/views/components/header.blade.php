@@ -30,7 +30,7 @@
                                                 <a href="{{ url('/profile') }}" class="link header_link">Профиль</a>
                                             </li>
                                             <li class="button-target_wrapper">
-                                                <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
+                                                <a href="{{ route('add-recipes') }}" class="link header_link button-target">+ Добавить рецепт</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('main') }}" class="link header_link">Мои рецепты</a>
@@ -70,15 +70,7 @@
                             <input type="text" placeholder="Поиск рецептов" class="header_seacrh__input" name='search' id="search">
                             <button type="submit" class="header_seacrh__button" name='submit' id="submit"><img src="/assets/image/icon/search.svg" alt=""></button>
                         </form>
-                        @if (Route::has('login'))
-                            @auth
-                                <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
-                            @else
-                                <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
-                            @endauth
-                        @else
-                            <a href="{{ route('main') }}" class="link header_link button-target">+ Добавить рецепт</a>
-                        @endif
+                        <a href="{{ route('add-recipes') }}" class="link header_link button-target">+ Добавить рецепт</a>
                     </div> 
                     <div class="header_column-3">
                         @if (Route::has('login'))
