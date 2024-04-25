@@ -1176,7 +1176,7 @@ footer {
     color: var(--main-color);
 }
 
-.recipe .ingredients {
+.recipe_page .ingredients {
     background-color: aliceblue;
     border-radius: 10px;
     width: 100%;
