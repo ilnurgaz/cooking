@@ -15,7 +15,8 @@
                                 Время готовки: {{$data->time_cook}} мин
                             </div>
                             <div class="info_el">
-                                Количество порций: {{$data->number_servings}} 
+                                Количество порций: {{$data->number_servings}}  
+                                
                             </div>
                             <div class="info_el">
                                 Дата публикации: {{$data->created_at}} 
