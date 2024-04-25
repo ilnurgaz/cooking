@@ -52,7 +52,7 @@
                             <th>Картинка</th>
                             <th>Название</th>
                             <th>Ярлык</th>
-                            <th colspan='2'>Действия</th>
+                            <th colspan='3'>Действия</th>
                         </thead>
                         <tbody>
                             @foreach($data as $el)
@@ -75,6 +75,7 @@
                                     <td><img src="{{$image}}" alt="" class="table_categorie__image"></td>
                                     <td>{{$el->name}}</td>
                                     <td>{{$el->slug}}</td>
+                                    <td><a href="/recipes/category/{{$el->slug}}" class="table_link link_update">Перейти</a></td>
                                     <td><a href="{{route('cat-update',$el->id)}}" class="table_link link_update">Изменить</a></td>
                                     <td><a href="{{route('cat-delete',$el->id)}}" class="table_link link_delete">Удалить</a></td>
                                 </tr>

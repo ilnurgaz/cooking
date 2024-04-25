@@ -52,7 +52,7 @@ class UserController extends Controller
         $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
         $recipes = Recipes::where('category', $category_id[0]->id)->take(20)->get();
         $count_recipes = Recipes::where('category', $category_id[0]->id)->count();
-        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => 0, 'articles' => $articles, 'cat_active' => $category_id[0]->slug, 'cat_pag' => false]);
+        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => 0, 'articles' => $articles, 'cat_active' => $category_id[0]->slug, 'cat_name' => $category_id[0]->name, 'cat_description' => $category_id[0]->description, 'cat_pag' => false]);
     }
 
     public function recipesCategoryPagination($category, $page) {
@@ -62,7 +62,7 @@ class UserController extends Controller
         $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
         $recipes = Recipes::where('category', $category_id[0]->id)->take(20)->offset($offset)->get();
         $count_recipes = Recipes::where('category', $category_id[0]->id)->count();
-        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'articles' => $articles, 'cat_active' => $category_id[0]->slug, 'cat_pag' => true]);
+        return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'articles' => $articles, 'cat_active' => $category_id[0]->slug, 'cat_name' => $category_id[0]->name, 'cat_description' => $category_id[0]->description, 'cat_pag' => true]);
     }
 
     public function recipePage($id) {

@@ -129,6 +129,18 @@
                 echo "</div></div>";
             }
         ?>
+        <?php
+            if($cat_active) {
+        ?>
+            <div class="block_container">
+            <h2 class="title-2">{{$cat_name}}</h2>
+            <div class="category_description">
+                {{$cat_description}}
+            </div>
+            </div>
+        <?php 
+            }
+        ?>
         <div class="block_container">
             <h2 class="title-2">Статьи</h2>
             <div class="articles_wrapper">

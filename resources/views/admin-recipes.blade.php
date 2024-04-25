@@ -134,7 +134,7 @@
                             <th>Картинка</th>
                             <th>Название</th>
                             <th>Категория</th>
-                            <th colspan='2'>Действия</th>
+                            <th colspan='3'>Действия</th>
                         </thead>
                         <tbody>
                             @foreach($data as $el)
@@ -158,6 +158,7 @@
                                     <td><img src="{{$image}}" alt="" class="table_categorie__image"></td>
                                     <td>{{$el->name}}</td>
                                     <td>{{$category->name}}</td>
+                                    <td><a href="{{route('recipe-page',$el->id)}}" class="table_link link_update">Перейти</a></td>
                                     <td><a href="{{route('recipes-update',$el->id)}}" class="table_link link_update">Изменить</a></td>
                                     <td><a href="{{route('recipes-delete',$el->id)}}" class="table_link link_delete">Удалить</a></td>
                                 </tr>

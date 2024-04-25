@@ -1207,6 +1207,12 @@ footer {
     height: 300px;
 }
 
+.category_description {
+    font-size: 16px;
+    font-family: 'MontserratR';
+    line-height: 20px;
+}
+
 @media (max-width: 1000px) {
     .recipe iframe {
         width: 60%;
