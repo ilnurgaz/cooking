@@ -1130,8 +1130,12 @@ footer {
 }
 
 .recipes_image {
+<<<<<<< Updated upstream
     max-height: 44%;
     height: 44%;
+=======
+    max-height: 40%;
+>>>>>>> Stashed changes
 }
 
 .recipe_page {
@@ -1203,6 +1207,7 @@ footer {
     gap: 20px;
 }
 
+<<<<<<< Updated upstream
 .recipe iframe {
     width: 50%;
     height: 300px;
@@ -1254,6 +1259,9 @@ footer {
         height: 240px;
     }
 }
+=======
+
+>>>>>>> Stashed changes
 
 
 @font-face {

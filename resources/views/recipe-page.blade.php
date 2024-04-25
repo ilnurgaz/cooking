@@ -1,3 +1,11 @@
+@section('title-block')
+{{ $data->name }}
+@endsection
+
+@section('description-block')
+{{ $data->description }}
+@endsection
+
 <x-header/>
     <div class="bloks_wrapper">
             <div class="block_container">
@@ -5,7 +13,7 @@
                     <h2 class="title">{{$data->name}}</h2>
                     <div class="recipe_page_section">
                         <div class="column-1">
-                            <img src="/assets/image/recipes/{{$data->image}}" class="recipe_page__image" alt="">
+                            <img src="/assets/image/recipes/{{$data->image}}" class="recipe_page__image" alt="{{ $data -> image}}" title="{{ substr($data -> image, 0, strrpos($data -> image, ".")) }}">
                         </div>
                         <div class="column-2">
                             <div class="info_el">

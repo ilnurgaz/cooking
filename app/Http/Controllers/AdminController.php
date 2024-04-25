@@ -303,5 +303,15 @@ class AdminController extends Controller
         $count = Articles::all()->count();
         return view('admin-articles', ['data' => $articles, 'count' => $count, 'page' => $page]);
     }
+
+    public function show($id)
+    {
+        $articles = Recipes::find($id);
+    
+        $this->setTitle($articles->name);
+        $this->setDescription($articles->description);
+    
+        return view('articles.show', compact('articles'));
+    }
     
 }
