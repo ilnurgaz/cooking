@@ -1,7 +1,7 @@
 <?php
     use App\Models\categories;
 ?>
-<x-header-admin/>
+<x-header/>
     <div class="bloks_wrapper">
         @if(Session::has('success'))
             <div class="message-success">
@@ -80,4 +80,4 @@
                 <input type="submit" value="Добавить">
             </form>
         </div>
-<x-footer-admin/>
+<x-footer/>

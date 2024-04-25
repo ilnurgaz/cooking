@@ -136,5 +136,10 @@ class UserController extends Controller
         $categories = categories::orderBy('created_at', 'asc')->get();
         return view('my-recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'cat_pag' => false, 'cat_active' => false]);
     }
+
+    public function deleteRecipe($id) {
+        Recipes::find($id)->delete();
+        return redirect()->back()->with('success', 'Рецепт был удален.');
+    }
     
 }

@@ -30,17 +30,15 @@ Route::get('/articles', function () {
     return view('articles');
 })->name('articles');
 
-Route::post('/contact/submit', 'App\Http\Controllers\ContactController@submit')-> name ('contact-form');
+Route::post(
+    '/contact/submit',
+    'App\Http\Controllers\ContactController@submit'
+)-> name ('contact-form');
 
 Route::get(
     '/articles/all', 
     'App\Http\Controllers\ArticlesController@allData'
 )->name('articles-data');
-
-Route::get(
-    '/admin-articles/all/{page}', 
-    'App\Http\Controllers\ArticlesController@allDataPagination'
-)->name('articles-data-pagination');
 
 Route::get(
     '/recipes', 
@@ -72,30 +70,34 @@ Route::get(
     'App\Http\Controllers\ArticlesController@showOneMessage'
 )->name('articles-data-one');
 
-Route::get(
-    '/add-recipes', 
-    'App\Http\Controllers\UserController@addRecipes'
-)->name('add-recipes');
-
-Route::get(
-    '/my-recipes', 
-    'App\Http\Controllers\UserController@myRecipes'
-)->name('my-recipes');
-
-Route::get(
-    '/my-recipes/{page}', 
-    'App\Http\Controllers\UserController@myRecipesPagination'
-)->name('my-recipes-pagination');
-
-Route::post(
-    '/add-recipes-controller', 
-    'App\Http\Controllers\UserController@addRecipesController'
-)->name('add-recipes-controller');
 
 
+Route::group(['middleware' => ['role:user|admin']], function () {
+    Route::get(
+        '/add-recipes', 
+        'App\Http\Controllers\UserController@addRecipes'
+    )->name('add-recipes');
 
+    Route::get(
+        '/my-recipes', 
+        'App\Http\Controllers\UserController@myRecipes'
+    )->name('my-recipes');
+    
+    Route::get(
+        '/my-recipes/{page}', 
+        'App\Http\Controllers\UserController@myRecipesPagination'
+    )->name('my-recipes-pagination');
+    
+    Route::post(
+        '/add-recipes-controller', 
+        'App\Http\Controllers\UserController@addRecipesController'
+    )->name('add-recipes-controller');
 
-
+    Route::get(
+        '/recipes/{id}/delete',
+        'App\Http\Controllers\UserController@deleteRecipe'
+    )->name('recipe-delete');
+});
 
 
 
@@ -216,6 +218,11 @@ Route::group(['middleware' => ['role:admin']], function () {
         '/admin-articles/submit', 
         'App\Http\Controllers\ArticlesController@submit'
     )->name('articles-form');
+
+    Route::get(
+        '/admin-articles/all/{page}', 
+        'App\Http\Controllers\ArticlesController@allDataPagination'
+    )->name('articles-data-pagination');
 
     Route::get(
         '/admin-articles/all/{id}/update', 

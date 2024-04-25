@@ -68,7 +68,7 @@
                         <div class="ingredients">
                             {{$el->ingredients}}
                         </div>
-                        <a href="{{route('recipes-delete',$el->id)}}" class="delete">Удалить</a>    
+                        <a href="{{route('recipe-delete',$el->id)}}" class="delete">Удалить</a>    
                     </div>
                 @endforeach
                     <?php
