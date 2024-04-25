@@ -8,6 +8,9 @@
 
 <?php
     use App\Models\categories;
+
+use function PHPSTORM_META\elementType;
+
 ?>
 <x-header/>
     <div class="bloks_wrapper">
@@ -101,11 +104,11 @@
             $page_count = ceil($count / 20);
             if($page_count > 1) {
                 echo "<div class='block_container'><div class='pagination_wrapper'>";
-                if($cat_pag) {
+                if($cat_active) {
                     echo "<a href='/recipes/category/$cat_active/0' class='pagination_link'><<</a>";
                 }
                 else {
-                    echo "<a href='/recipes/category/$cat_active/0' class='pagination_link'><<</a>";
+                    echo "<a href='/recipes/0' class='pagination_link'><<</a>";
                 }
                 $currentPage = $page + 1;
                 $start = max($currentPage - 3, 1);
@@ -113,18 +116,18 @@
                 for ($i = $start; $i <= $end; $i++) {
                     $p = $i - 1;
                     $pag_class = ($page == $p) ? "pagination_link-active" : "pagination_link";
-                        if($cat_pag) {
-                            echo "<a href='/recipes/category/$cat_active/$p' class='$pag_class'>$i</a>";
-                        }
-                        else {
-                            echo "<a href='/recipes/category/$cat_active/$p' class='$pag_class'>$i</a>";
-                        }
+                    if($cat_active) {
+                        echo "<a href='/recipes/category/$cat_active/$p' class='$pag_class'>$i</a>";
+                    }
+                    else {
+                        echo "<a href='/recipes/$p' class='$pag_class'>$i</a>";
+                    }
                 }
-                if($cat_pag) {
+                if($cat_active) {
                     echo "<a href='/recipes/category/$cat_active/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
                 }
                 else {
-                    echo "<a href='/recipes/category/$cat_active/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
+                    echo "<a href='/recipes/" . ($page_count - 1) . "' class='pagination_link'>>></a>";
                 }
                 echo "</div></div>";
             }

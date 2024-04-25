@@ -33,7 +33,7 @@
                                                 <a href="{{ route('add-recipes') }}" class="link header_link button-target">+ Добавить рецепт</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('main') }}" class="link header_link">Мои рецепты</a>
+                                                <a href="{{ route('my-recipes') }}" class="link header_link">Мои рецепты</a>
                                             </li>
                                         @else
                                             <li class="burger_reg-auth">

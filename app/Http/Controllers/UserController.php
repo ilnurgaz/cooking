@@ -119,7 +119,22 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
-    
-    
+
+    public function myRecipes() {
+        $user_id = Auth::user()->id;
+        $count_recipes = Recipes::where('id_user', $user_id)->count();
+        $recipes = Recipes::where('id_user', $user_id)->take(20)->get();
+        $categories = categories::orderBy('created_at', 'asc')->get();
+        return view('my-recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => 0, 'cat_pag' => false, 'cat_active' => false]);
+    }
+
+    public function myRecipesPagination($page) {
+        $offset = 20 * $page;
+        $user_id = Auth::user()->id;
+        $count_recipes = Recipes::where('id_user', $user_id)->count();
+        $recipes = Recipes::where('id_user', $user_id)->offset($offset)->take(20)->get();
+        $categories = categories::orderBy('created_at', 'asc')->get();
+        return view('my-recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'cat_pag' => false, 'cat_active' => false]);
+    }
     
 }

@@ -77,6 +77,16 @@ Route::get(
     'App\Http\Controllers\UserController@addRecipes'
 )->name('add-recipes');
 
+Route::get(
+    '/my-recipes', 
+    'App\Http\Controllers\UserController@myRecipes'
+)->name('my-recipes');
+
+Route::get(
+    '/my-recipes/{page}', 
+    'App\Http\Controllers\UserController@myRecipesPagination'
+)->name('my-recipes-pagination');
+
 Route::post(
     '/add-recipes-controller', 
     'App\Http\Controllers\UserController@addRecipesController'

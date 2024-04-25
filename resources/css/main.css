@@ -1131,6 +1131,7 @@ footer {
 
 .recipes_image {
     max-height: 44%;
+    height: 44%;
 }
 
 .recipe_page {
@@ -1211,6 +1212,27 @@ footer {
     font-size: 16px;
     font-family: 'MontserratR';
     line-height: 20px;
+}
+
+.delete {
+    display: flex;
+    color: white;
+    width: auto;
+    font-size: 14px;
+    margin-top: 30px;
+    font-family: 'Roboto';
+    text-decoration: none;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 70px;
+    justify-content: center;
+    align-items: flex-end;
+    transition: 0.3s;
+}
+
+.delete:hover {
+    opacity: 0.7;
 }
 
 @media (max-width: 1000px) {
