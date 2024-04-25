@@ -7,7 +7,7 @@
         <meta name="description" content="@yield('description-block')">
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/main1.css">
-        <script type="text/javascript" src="../assets/js/burger_menu.js"></script>
+        <script type="text/javascript" src="/assets/js/burger_menu.js"></script>
     </head>
     <body class="antialiased">
         <div class="wrapper">

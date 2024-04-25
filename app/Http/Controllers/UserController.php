@@ -17,7 +17,14 @@ class UserController extends Controller
             $categories = categories::orderBy('created_at', 'asc')->get();
             $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
             $recipes = Recipes::where('name', 'like', '%' . $searchTerm . '%')->get();
-            return view('recipes', ['categories' => $categories, 'count' => 1, 'recipes' => $recipes, 'page' => 0, 'articles' => $articles, 'cat_pag' => false, 'cat_active' => false]);
+            $count_recipes = Recipes::where('name', 'like', '%' . $searchTerm . '%')->count();
+            if($count_recipes > 0) {
+                $count = 1;
+            }
+            else {
+                $count = 0;
+            }
+            return view('recipes', ['categories' => $categories, 'count' => $count, 'recipes' => $recipes, 'page' => 0, 'articles' => $articles, 'cat_pag' => false, 'cat_active' => false]);
         }
         else {
             $count_recipes = Recipes::count();
@@ -55,5 +62,12 @@ class UserController extends Controller
         $count_recipes = Recipes::where('category', $category_id[0]->id)->count();
         return view('recipes', ['categories' => $categories, 'count' => $count_recipes, 'recipes' => $recipes, 'page' => $page, 'articles' => $articles, 'cat_active' => $category_id[0]->slug, 'cat_pag' => true]);
     }
+
+    public function recipePage($id) {
+        $recipe = Recipes::find($id);
+        $category = categories::where('id', $recipe->category)->get();
+        return view('recipe-page', ['data' => $recipe, 'category' => $category[0]->name, 'cat_slug' => $category[0]->slug]);
+    }
+    
     
 }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreign('id_user')->references('id')->on('users');
             $table->string('name');
             $table->string('image');
-            $table->text('description');
-            $table->string('video');
+            $table->text('description')->nullable();
+            $table->text('video')->nullable();
             $table->integer('time_cook');
             $table->integer('number_servings');
             $table->text('ingredients');

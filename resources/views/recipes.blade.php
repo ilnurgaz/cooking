@@ -48,7 +48,7 @@
                         @foreach($recipes as $el)
                     <div class="recipes_el">
                         <div class="recipes_title">
-                            <a href="" class="recipes_link">
+                            <a href="{{route('recipe-page',$el->id)}}" class="recipes_link">
                                 {{$el->name}}
                             </a>
                         </div>
@@ -68,7 +68,7 @@
                             }
                             $category = categories::where('id', $el->category)->first();
                         ?>
-                        <a href="" class="recipes_link">
+                        <a href="{{route('recipe-page',$el->id)}}" class="recipes_link">
                             <img src="{{$image}}" alt="" class="recipes_image" title="{{ substr($el -> image, 0, strrpos($el -> image, ".")) }}">
                         </a>
                         <div class="line"></div>

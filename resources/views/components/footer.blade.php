@@ -33,18 +33,18 @@
                         </div>
                         <div class="footer_column-3">
                             <div class="footer_menu__wrapper">
-                                <a href="{{ route('main') }}" class="link footer_link">Первые блюда</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Вторые блюда</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Салаты</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Десерты</a>
+                                <a href="{{ url('/recipes/category/pervoe_bliydo') }}" class="link footer_link">Первые блюда</a>
+                                <a href="{{ url('/recipes/category/vtorie_bliyda') }}" class="link footer_link">Вторые блюда</a>
+                                <a href="{{ url('/recipes/category/salat') }}" class="link footer_link">Салаты</a>
+                                <a href="{{ url('/recipes/category/desert') }}" class="link footer_link">Десерты</a>
                             </div>
                         </div>
                         <div class="footer_column-4">
                             <div class="footer_menu__wrapper">
-                                <a href="{{ route('main') }}" class="link footer_link">Закуски</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Напитки</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Изделия из теста</a>
-                                <a href="{{ route('main') }}" class="link footer_link">Другие</a>
+                                <a href="{{ url('/recipes/category/zakuski') }}" class="link footer_link">Закуски</a>
+                                <a href="{{ url('/recipes/category/napitki') }}" class="link footer_link">Напитки</a>
+                                <a href="{{ url('/recipes/category/izdelia_iz_testa') }}" class="link footer_link">Изделия из теста</a>
+                                <a href="{{ url('/recipes/category/drugie') }}" class="link footer_link">Другие</a>
                             </div>
                         </div>
                     </div>

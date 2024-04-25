@@ -1133,6 +1133,79 @@ footer {
     max-height: 44%;
 }
 
+.recipe_page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recipe_page__image {
+    width: 100%;
+}
+
+
+.recipe_page_section {
+    display: flex;
+    gap: 20px;
+}
+
+.column-1,
+.column-2 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+.info_el {
+    font-size: 16px;
+    font-family: 'MontserratR';
+}
+
+.info_el a {
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.info_el a:hover {
+    color: var(--main-color);
+}
+
+.ingredients {
+    background-color: aliceblue;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    font-family: 'MontserratR';
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recipe {
+    background-color: aliceblue;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    font-family: 'MontserratR';
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recipe_main {
+
+}
+
 
 @font-face {
     font-family: MontserratB; 
