@@ -85,7 +85,7 @@ class UserController extends Controller
             $imageName = $image->getClientOriginalName(); 
             $recipes->image = $imageName; 
             $tmpPath = $image->getPathname();
-            $path = public_path('./assets/image/recipes');
+            $path = public_path('/assets/image/recipes');
         }
         else {
             $recipes->image = 'image-placeholder.png'; 

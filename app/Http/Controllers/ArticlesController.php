@@ -18,7 +18,7 @@ class ArticlesController extends Controller
          $imageName = $image->getClientOriginalName(); 
          $articles->image = $imageName; 
          $tmpPath = $image->getPathname();
-         $path = public_path('./assets/image/articles');
+         $path = public_path('/assets/image/articles');
      }
      else {
          $articles->image = 'image-placeholder.png'; 
@@ -66,7 +66,7 @@ class ArticlesController extends Controller
             $imageName = $image->getClientOriginalName(); 
             $articles->image = $imageName; 
             $tmpPath = $image->getPathname();
-            $path = public_path('./assets/image/articles');
+            $path = public_path('/assets/image/articles');
         }
         else {
             $articles->image = 'image-placeholder.png'; 

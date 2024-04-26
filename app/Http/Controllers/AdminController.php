@@ -40,7 +40,7 @@ class AdminController extends Controller
             $imageName = $image->getClientOriginalName(); 
             $category->image = $imageName; 
             $tmpPath = $image->getPathname();
-            $path = public_path('./assets/image/categorises');
+            $path = public_path('/assets/image/categorises');
         }
         else {
             $category->image = 'image-placeholder.png'; 
@@ -110,7 +110,7 @@ class AdminController extends Controller
             $imageName = $image->getClientOriginalName(); 
             $category->image = $imageName; 
             $tmpPath = $image->getPathname();
-            $path = public_path('./assets/image/categorises');
+            $path = public_path('/assets/image/categorises');
         }
         try {
             if($image) {
@@ -187,7 +187,7 @@ class AdminController extends Controller
             $imageName = $image->getClientOriginalName(); 
             $recipes->image = $imageName; 
             $tmpPath = $image->getPathname();
-            $path = public_path('./assets/image/recipes');
+            $path = public_path('/assets/image/recipes');
         }
         else {
             $recipes->image = 'image-placeholder.png'; 
@@ -248,7 +248,7 @@ class AdminController extends Controller
             $imageName = $image->getClientOriginalName(); 
             $recipes->image = $imageName; 
             $tmpPath = $image->getPathname();
-            $path = public_path('./assets/image/recipes');
+            $path = public_path('/assets/image/recipes');
         }
         try {
             if($image) {
