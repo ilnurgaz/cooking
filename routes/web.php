@@ -18,9 +18,10 @@ use Spatie\Permission\Contracts\Role;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-})->name('main');
+Route::get(
+    '/',
+    'App\Http\Controllers\UserController@homePage'
+)->name('main');
 
 Route::get('/contact', function () {
     return view('contact');
