@@ -1,3 +1,7 @@
+@section('title-block')
+Профиль
+@endsection
+
 <x-header/>
     <div class="profile_container">
         <div class="profile_wrapper">

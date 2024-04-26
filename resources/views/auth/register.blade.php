@@ -1,3 +1,6 @@
+@section('title-block')
+Регистрация
+@endsection
 <x-header/>
     <form method="POST" action="{{ route('register') }}" class="form_r_a">
         @csrf

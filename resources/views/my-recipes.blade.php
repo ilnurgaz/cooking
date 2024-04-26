@@ -1,3 +1,11 @@
+@section('title-block')
+Мои рецепты
+@endsection
+
+@section('description-block')
+Можете добавить свой рецепт
+@endsection
+
 <?php
     use App\Models\categories;
 ?>

@@ -1,3 +1,7 @@
+@section('title-block')
+Авторизация
+@endsection
+
 <x-header/>
 
     <form method="POST" action="{{ route('login') }}" class="form_r_a">
