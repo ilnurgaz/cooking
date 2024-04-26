@@ -142,4 +142,11 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Рецепт был удален.');
     }
     
+    public function homePage() {
+        $new_recipes = Recipes::orderBy('created_at', 'desc')->take(8)->get();
+        $pop_categories = categories::orderBy('created_at', 'asc')->take(4)->get();
+        $pop_categories = categories::orderBy('created_at', 'asc')->take(4)->get();
+        $articles = Articles::orderBy('created_at', 'desc')->take(4)->get();
+        return view('main', ['new_recipes' => $new_recipes, 'pop_categories' => $pop_categories, 'articles' => $articles]);
+    }
 }
